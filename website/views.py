@@ -15,3 +15,9 @@ def events_page(request):
 
 def contact_page(request):
     return render(request, "contact.html")
+
+def blogs_page(request):
+    return render(request, "blogs.html")
+
+def blog_page(request):
+    return render(request, "blog.html")

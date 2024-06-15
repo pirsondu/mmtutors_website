@@ -10,4 +10,6 @@ urlpatterns = [
     path("features", views.features_page, name="features"),
     path("events", views.events_page, name="events"),
     path("contact", views.contact_page, name="contact"),
+    path("blogs", views.blogs_page, name="blogs"),
+    path("blog", views.blog_page, name="blog"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

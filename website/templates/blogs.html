@@ -1,0 +1,33 @@
+{% extends 'base/layout.html' %}
+
+{% block body %}
+  <section class="container blog-section py-5">
+    <div class="blog-search-filter">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <input type="text" id="searchBox" class="form-control" placeholder="Search blog posts..." />
+        </div>
+        <div class="col-md-6">
+          <select id="categoryFilter" class="form-control">
+            <option value="">Filter by category</option>
+            <option value="category1">Category 1</option>
+            <option value="category2">Category 2</option>
+            <option value="category3">Category 3</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" id="blogList">
+        {% include 'components/blog.html' %}
+        {% include 'components/blog.html' %}
+        {% include 'components/blog.html' %}
+        {% include 'components/blog.html' %}
+        {% include 'components/blog.html' %}
+        {% include 'components/blog.html' %}
+        {% include 'components/blog.html' %}
+        {% include 'components/blog.html' %}
+        {% include 'components/blog.html' %}
+    </div>
+  </section>
+{% endblock %}
