@@ -1,0 +1,108 @@
+body {
+    padding-top: 70px;
+    /* Adjust this value if your navbar height is different */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.bg-yellow {
+    background-color: #FFD700 !important;
+    /* Yellow background */
+}
+
+.navbar .nav-link {
+    color: #000 !important;
+    /* Ensure the text color contrasts well with the background */
+    transition: color 0.3s;
+    /* Smooth transition for color change */
+    font-size: 18px; /* Increase font size */
+
+}
+
+.navbar .nav-link:hover {
+    color: #FF8C00 !important;
+    /* Dark orange color on hover */
+}
+
+
+.features {
+    padding: 60px 0;
+}
+
+.feature {
+    text-align: center;
+    padding: 20px;
+}
+
+.feature .icon {
+    color: #FFD700;
+}
+
+.tutor img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.tutor {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 200px;
+}
+
+footer {
+    background: #FFD700;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.navbar-brand img {
+    width: 150px;
+    /* Set the width of the logo */
+    height: 50px;
+    /* Set the height of the logo */
+    object-fit: contain;
+    /* Maintain aspect ratio */
+}
+
+/* For Contact Page */
+.contact-section {
+    padding: 60px 0;
+}
+
+.contact-info {
+    margin-bottom: 30px;
+}
+
+.contact-info i {
+    font-size: 30px;
+    color: #FFD700;
+    margin-right: 15px;
+}
+
+.contact-form {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.map {
+    width: 100%;
+    height: 400px;
+    border: none;
+}

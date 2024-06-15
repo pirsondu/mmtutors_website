@@ -1,0 +1,53 @@
+{% extends 'base/layout.html' %}
+
+{% block body %}
+  <section class="contact-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <h2>Contact Us</h2>
+          <p class="lead">We'd love to hear from you! Whether you have a question about our services, need assistance, or just want to talk, we're here for you.</p>
+          <div class="contact-info">
+            <i class="bi bi-geo-alt"></i>
+            <span>123 Main Street, Yangon, Myanmar</span>
+          </div>
+          <div class="contact-info">
+            <i class="bi bi-telephone"></i>
+            <span>+95 123 456 789</span>
+          </div>
+          <div class="contact-info">
+            <i class="bi bi-envelope"></i>
+            <span>info@mmtutors.com</span>
+          </div>
+          <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.5158349538885!2d144.963057515447!3d-37.81410797975156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577b7c70ba8c0c4!2s123%20Main%20St%2C%20Melbourne%20VIC%203000%2C%20Australia!5e0!3m2!1sen!2sau!4v1592309343273!5m2!1sen!2sau" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="contact-form">
+            <h4>Get in Touch</h4>
+            <form>
+              <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" class="form-control" id="fullName" name="fullName" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" name="phone" required />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
