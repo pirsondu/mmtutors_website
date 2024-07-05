@@ -36,3 +36,12 @@ def tutor_faq_page(request):
     
 def tutor_terms_page(request):
     return render(request, "tutors/terms.html")
+
+
+    
+def parent_faq_page(request):
+    return render(request, "parents/faq.html")
+
+    
+def parent_tutors_page(request):
+    return render(request, "parents/tutors.html")

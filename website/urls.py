@@ -16,4 +16,7 @@ urlpatterns = [
     path("tutors/events", views.tutor_events_page, name="tutor_events"),
     path("tutors/faq", views.tutor_faq_page, name="tutor_faq"),
     path("tutors/terms", views.tutor_terms_page, name="tutor_terms"),
+
+    path("parents/faq", views.parent_faq_page, name="parents_faq"),
+    path("parents/tutors", views.parent_tutors_page, name="parents_tutors"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
