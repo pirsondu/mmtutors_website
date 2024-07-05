@@ -10,8 +10,6 @@ def about_page(request):
 def features_page(request):
     return render(request, "features.html")
 
-def events_page(request):
-    return render(request, "events.html")
 
 def contact_page(request):
     return render(request, "contact.html")
@@ -24,3 +22,17 @@ def blog_page(request):
 
 def vlog_page(request):
     return render(request, "vlog.html")
+
+
+def tutor_register_page(request):
+    return render(request, "tutors/registration.html")
+
+
+def tutor_events_page(request):
+    return render(request, "tutors/events.html")
+    
+def tutor_faq_page(request):
+    return render(request, "tutors/faq.html")
+    
+def tutor_terms_page(request):
+    return render(request, "tutors/terms.html")

@@ -1,0 +1,42 @@
+{% extends 'base/layout.html' %}
+
+{% block body %}
+  <section class="container mt-5 pt-5 mb-5">
+    <h1 class="text-center mb-4">Tutor Application Form</h1>
+    <form>
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email" />
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" />
+      </div>
+      <div class="form-group">
+        <label for="subjects">Subjects you can teach</label>
+        <input type="text" class="form-control" id="subjects" placeholder="Enter subjects" />
+      </div>
+      <div class="form-group">
+        <label for="education">Educational Qualifications</label>
+        <textarea class="form-control" id="education" rows="3" placeholder="Enter your educational qualifications"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="experience">Teaching Experience</label>
+        <textarea class="form-control" id="experience" rows="3" placeholder="Describe your teaching experience"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="availability">Availability</label>
+        <input type="text" class="form-control" id="availability" placeholder="Enter your availability" />
+      </div>
+      <div class="form-group">
+        <label for="resume">Upload Resume</label>
+        <input type="file" class="form-control-file" id="resume" />
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </section>
+{% endblock %}

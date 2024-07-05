@@ -1,0 +1,49 @@
+{% extends 'base/layout.html' %}
+
+{% block body %}
+  <section id="events" class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h2 class="mb-4">Upcoming Events</h2>
+          <p class="lead mb-5">Register for upcoming events by filling the form below:</p>
+        </div>
+      </div>
+      <div class="row mb-5">
+
+        {% include "components/event.html" %}
+        {% include "components/event.html" %}
+        {% include "components/event.html" %}
+      </div>
+      <div class="row">
+        <div class="col-lg-6 mx-auto">
+          <form>
+            <div class="form-group">
+              <label for="eventName">Select Event</label>
+              <select class="form-control" id="eventName" name="eventName">
+                <option value="event1">Event 1 - Date: 2024-07-01</option>
+                <option value="event2">Event 2 - Date: 2024-07-15</option>
+                <option value="event3">Event 3 - Date: 2024-08-05</option>
+                <option value="event4">Event 4 - Date: 2024-08-20</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" class="form-control" id="fullName" name="fullName" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" class="form-control" id="phone" name="phone" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+          </form>
+          <br />
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

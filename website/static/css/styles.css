@@ -24,6 +24,21 @@ body {
     /* Dark orange color on hover */
 }
 
+.dropdown-menu {
+    background-color: #FFD700 !important;
+    /* Yellow background for dropdown */
+}
+
+.dropdown-item {
+    color: #000 !important;
+    /* Black text color */
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: #FF8C00 !important;
+    /* Dark orange on hover */
+}
 
 .features {
     padding: 60px 0;
@@ -50,7 +65,7 @@ body {
 
 .btn:hover {
     background-color: #e2c106;
- 
+
 }
 
 .tutor img {
