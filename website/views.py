@@ -21,3 +21,6 @@ def blogs_page(request):
 
 def blog_page(request):
     return render(request, "blog.html")
+
+def vlog_page(request):
+    return render(request, "vlog.html")
