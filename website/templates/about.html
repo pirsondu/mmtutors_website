@@ -1,40 +1,86 @@
 {% extends 'base/layout.html' %}
 
 {% block body %}
-<section id="about" class="py-5">
+  <section id="about" class="py-5">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center">
-                <h2 class="mb-4">About Us</h2>
-                <p class="lead mb-5">MMTutors is a leading online tutoring platform based in Myanmar, dedicated to providing quality education and personalized learning experiences for students across the nation.</p>
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h2 class="mb-4">About Us</h2>
+          <p class="lead mb-5">MMTutors is a leading online tutoring platform based in Myanmar, dedicated to providing quality education and personalized learning experiences for students across the nation.</p>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h3>Foundation of MMTutors</h3>
+                <p>Established in 2005, MMTutors started with a mission to provide quality education...</p>
+              </div>
             </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h3>Expansion and Growth</h3>
+                <p>Expanded services to cover a wider range of subjects and regions...</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h3>Recent Developments</h3>
+                <p>Introduced innovative learning technologies and online tutoring platforms...</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <hr>
-        <div class="row">
-            <div class="col-lg-6">
-                <h3>Establishment Note</h3>
-                <p>Founded in 20XX, MMTutors began with a vision to revolutionize education in Myanmar by leveraging technology to connect students with highly qualified tutors.</p>
-                <img src="https://placehold.co/600x400" class="img-fluid mb-4" alt="Establishment Note Image">
-            </div>
-            <div class="col-lg-6">
-                <h3>CEO Talk</h3>
-                <p>"At MMTutors, we are committed to empowering students with knowledge and skills that transcend traditional classroom boundaries. Our mission is to make quality education accessible to everyone, no matter where they are."</p>
-                <img src="https://placehold.co/600x400" class="img-fluid mb-4" alt="CEO Talk Image">
-            </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-lg-6">
-                <h3>Vision</h3>
-                <p>To be the leading online tutoring platform in Myanmar, recognized for innovation in education and commitment to student success.</p>
-                <img src="https://placehold.co/600x400" class="img-fluid mb-4" alt="Vision Image">
-            </div>
-            <div class="col-lg-6">
-                <h3>Mission</h3>
-                <p>Our mission is to provide personalized experiences that empower students to achieve academic excellence, and prepare them for future challenges.</p>
-                <img src="https://placehold.co/600x400" class="img-fluid mb-4" alt="Mission Image">
-            </div>
-        </div>
-    </div>
-</section>
 
+        <!-- Timeline Section -->
+
+        <!-- Achievements Section -->
+      </div>
+      <hr />
+      {% comment %} <div class="row">
+        <div class="col-lg-6">
+          <h3>Establishment Note</h3>
+          <p>Founded in 20XX, MMTutors began with a vision to revolutionize education in Myanmar by leveraging technology to connect students with highly qualified tutors.</p>
+          <img src="https://placehold.co/600x400" class="img-fluid mb-4" alt="Establishment Note Image" />
+        </div>
+        <div class="col-lg-6">
+          <h3>CEO Talk</h3>
+          <p>"At MMTutors, we are committed to empowering students with knowledge and skills that transcend traditional classroom boundaries. Our mission is to make quality education accessible to everyone, no matter where they are."</p>
+          <img src="https://placehold.co/600x400" class="img-fluid mb-4" alt="CEO Talk Image" />
+        </div>
+      </div> {% endcomment %}
+      <div class="achievement">
+        <h3 class="text-center mb-4">Our Achievements</h3>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h5 class="card-title">Award for Excellence in Education</h5>
+                <p class="card-text">Received the National Education Award in 2018 for outstanding contribution to education.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h5 class="card-title">Global Recognition</h5>
+                <p class="card-text">Recognized as a leading online tutoring platform in Southeast Asia by TechReview in 2020.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="row mt-5">
+        <div class="col-lg-6">
+          <h3>Vision</h3>
+          <p>To be the leading online tutoring platform in Myanmar, recognized for innovation in education and commitment to student success.</p>
+          <img src="https://placehold.co/600x400" class="img-fluid mb-4" alt="Vision Image" />
+        </div>
+        <div class="col-lg-6">
+          <h3>Mission</h3>
+          <p>Our mission is to provide personalized experiences that empower students to achieve academic excellence, and prepare them for future challenges.</p>
+          <img src="https://placehold.co/600x400" class="img-fluid mb-4" alt="Mission Image" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="container mt-5 pt-5"></div>
 {% endblock %}
