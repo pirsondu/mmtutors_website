@@ -161,3 +161,4 @@ cython_debug/
 mmtutors/settings.py
 website/static/css/oldstyles.css
 website/templates/oldindex.html
+mmtutors/settings.py

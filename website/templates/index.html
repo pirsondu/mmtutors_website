@@ -1,4 +1,5 @@
 {% extends 'base/layout.html' %}
+{% load static %}
 
 {% block body %}
   <!-- Photos Section -->
@@ -47,28 +48,46 @@
   <!-- Our Features -->
   <section id="features" class="features bg-light">
     <div class="container">
-      <h2 class="text-center">Our Features</h2>
+      <h2 class="text-center"> {% if request.COOKIES.lang == "MM" %} {{ features.mm.header }} {% else %} {{ features.en.header }} {% endif %} </h2>
       <div class="row">
         <div class="col-md-4 feature">
           <div class="icon mb-3">
             <i class="bi bi-person-circle" style="font-size: 3em;"></i>
           </div>
-          <h3>Expert Tutors</h3>
-          <p>Learn from the best tutors in the country.</p>
+          {% if request.COOKIES.lang == "MM" %} <h4>{{ features.mm.topic1.header }}</h4> {% else %} <h3>{{ features.en.topic1.header }} {% endif %}</h3>
+          <p>
+            {% if request.COOKIES.lang == "MM" %} 
+              {{ features.mm.topic1.body }} 
+            {% else %} 
+              {{ features.en.topic1.body }} 
+            {% endif %}
+          </p>
         </div>
         <div class="col-md-4 feature">
           <div class="icon mb-3">
             <i class="bi bi-calendar-check" style="font-size: 3em;"></i>
           </div>
-          <h3>Flexible Scheduling</h3>
-          <p>Book lessons at times that suit you.</p>
+          {% if request.COOKIES.lang == "MM" %} <h4>{{ features.mm.topic2.header }}</h4> {% else %} <h3>{{ features.en.topic2.header }} {% endif %}</h3>
+          <p>
+            {% if request.COOKIES.lang == "MM" %} 
+              {{ features.mm.topic2.body }} 
+            {% else %} 
+              {{ features.en.topic2.body }} 
+            {% endif %}
+          </p>
         </div>
         <div class="col-md-4 feature">
           <div class="icon mb-3">
             <i class="bi bi-chat-dots" style="font-size: 3em;"></i>
           </div>
-          <h3>Interactive Lessons</h3>
-          <p>Engage with interactive and fun lessons.</p>
+          {% if request.COOKIES.lang == "MM" %} <h4>{{ features.mm.topic3.header }}</h4> {% else %} <h3>{{ features.en.topic3.header }} {% endif %}</h3>
+          <p>
+            {% if request.COOKIES.lang == "MM" %} 
+              {{ features.mm.topic3.body }} 
+            {% else %} 
+              {{ features.en.topic3.body }} 
+            {% endif %}
+          </p>
         </div>
       </div>
     </div>
@@ -76,28 +95,29 @@
   {% comment %}End of Our Features{% endcomment %}
   {% comment %}Start of Our Services{% endcomment %}
   <section class="container text-center my-5">
-    <h2 class="mb-4">Our Services</h2>
+    <h2 class="text-center mb-4"> {% if request.COOKIES.lang == "MM" %} {{ services.mm.header }} {% else %} {{ services.en.header }} {% endif %} </h2>
+
     <div class="row">
       <div class="col-md-4 service">
         <div class="icon mb-3">
-          <i class="bi bi-camera-video" style="font-size: 3em;"></i>
+          <i class="bi bi-bank" style="font-size: 3em;"></i>
         </div>
-        <h5>Live Streaming</h5>
-        <p>Interactive live classes with real-time feedback.</p>
+        <h5>{% if request.COOKIES.lang == "MM" %} {{ services.mm.topic1.header }} {% else %} {{ services.en.topic1.header }} {% endif %}</h5>
+        {% comment %} <p>Interactive live classes with real-time feedback.</p> {% endcomment %}
       </div>
       <div class="col-md-4 service">
         <div class="icon mb-3">
-          <i class="bi bi-chat-dots" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+          <i class="bi bi-building" style="font-size: 3em;"></i>
         </div>
-        <h5>24/7 Support</h5>
-        <p>Get help whenever you need it from our dedicated support team.</p>
+        <h5>{% if request.COOKIES.lang == "MM" %} {{ services.mm.topic2.header }} {% else %} {{ services.en.topic2.header }} {% endif %}</h5>
+        {% comment %} <p>Get help whenever you need it from our dedicated support team.</p> {% endcomment %}
       </div>
       <div class="col-md-4 service">
         <div class="icon mb-3">
-          <i class="bi bi-file-earmark-text" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+          <i class="bi bi-translate" style="font-size: 3em;"></i>
         </div>
-        <h5>Assignments</h5>
-        <p>Practice what you learn with regular assignments and feedback.</p>
+        <h5>{% if request.COOKIES.lang == "MM" %} {{ services.mm.topic3.header }} {% else %} {{ services.en.topic3.header }} {% endif %}</h5>
+        {% comment %} <p>Practice what you learn with regular assignments and feedback.</p> {% endcomment %}
       </div>
     </div>
   </section>
@@ -105,7 +125,7 @@
   {% comment %}Start of Student Testimonials{% endcomment %}
   <section id="testimonials" class="py-5 bg-light">
     <div class="container">
-      <h2 class="text-center">Student Testimonials</h2>
+      <h2 class="text-center">{% if request.COOKIES.lang == "MM" %} {{ testimonials.mm.header }} {% else %} {{ testimonials.en.header }} {% endif %}</h2>
       <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
