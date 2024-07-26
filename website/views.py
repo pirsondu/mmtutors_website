@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from .models import Parent_Question, Tutor_Question
+from .models import Parent_Question, Tutor_Question, HomeImage
 
 # Create your views here.
 def index_page(request):
-
+    slider = HomeImage.objects.all()
     context = { 'features' : 
         {
             'en' : {
@@ -88,7 +88,8 @@ def index_page(request):
                     'header': 'ဘာသာစကားနှင့် အခြားပညာရပ် ဆရာများ',
                 }
             }
-        }
+        }, 
+        'slider' : slider
     }
     return render(request, "index.html", context)
 

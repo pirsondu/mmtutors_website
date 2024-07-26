@@ -1,6 +1,9 @@
 from django.db import models
 
-# Create your models here.
+class HomeImage(models.Model):
+    image = models.ImageField(null=True, blank=True)
+
+
 class Parent_Question(models.Model):
     question_mm = models.TextField()
     answer_mm = models.TextField()
