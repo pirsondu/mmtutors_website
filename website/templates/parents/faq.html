@@ -4,30 +4,34 @@
   <section class="container mt-5 pt-5 mb-5">
     <h1 class="text-center mb-4">Parent FAQ</h1>
     <div class="accordion" id="faqAccordion">
-      <div class="card">
-        <div class="card-header" id="headingOne">
-          <h2 class="mb-0"><button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">How can I register my child as a student?</button></h2>
-        </div>
-        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
-          <div class="card-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis, tortor non congue imperdiet, urna dolor convallis odio, sit amet convallis velit nisl quis libero.</div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingTwo">
-          <h2 class="mb-0"><button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">What subjects do you offer tutoring for?</button></h2>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
-          <div class="card-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis, tortor non congue imperdiet, urna dolor convallis odio, sit amet convallis velit nisl quis libero.</div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingThree">
-          <h2 class="mb-0"><button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">How do I contact a tutor directly?</button></h2>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
-          <div class="card-body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed rerum aut et tenetur reprehenderit minus ducimus inventore numquam deserunt id, omnis ad? Unde voluptates quia eum reiciendis iure consectetur consequatur!</div>
-        </div>
-      </div>
+
+      
+      {% for question in questions %}
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{forloop.counter}}" aria-expanded="true" aria-controls="collapse{{forloop.counter}}">
+                {% if request.COOKIES.lang == "MM" %} 
+                  {{ question.question_mm }} 
+                {% else %} 
+                  {{ question.question_en }} 
+                {% endif %}
+              </button>
+            </h2>
+          </div>
+          <div id="collapse{{forloop.counter}}" class="collapse" aria-labelledby="headingOne" data-parent="#faqAccordion">
+            <div class="card-body">
+              {% if request.COOKIES.lang == "MM" %} 
+              {{ question.answer_mm|linebreaks }} 
+            {% else %} 
+              {{ question.answer_en|linebreaks }} 
+            {% endif %}
+            </div>
+          </div>
+        </div>   
+      {% endfor %}
+
+      
     </div>
   </section>
 {% endblock %}

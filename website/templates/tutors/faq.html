@@ -4,46 +4,30 @@
   <section class="container mt-5 pt-5 mb-5">
     <h1 class="text-center mb-4">Tutor FAQ</h1>
     <div class="accordion" id="faqAccordion">
-      <div class="card">
-        <div class="card-header" id="headingOne">
-          <h2 class="mb-0"><button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">What qualifications do I need to become a tutor?</button></h2>
-        </div>
-        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
-          <div class="card-body">To become a tutor at MMTutors, you need to have a minimum of a bachelor's degree in the subject you wish to teach. Additionally, teaching experience is highly valued.</div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingTwo">
-          <h2 class="mb-0"><button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">How do I apply to become a tutor?</button></h2>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
-          <div class="card-body">You can apply to become a tutor by filling out our application form on the "Apply as a Tutor" page. Make sure to include all relevant information and upload your resume.</div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingThree">
-          <h2 class="mb-0"><button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">What subjects can I teach?</button></h2>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
-          <div class="card-body">We offer tutoring in a wide range of subjects, including math, science, English, and more. If you have expertise in a particular subject, we encourage you to apply and specify the subjects you can teach.</div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingFour">
-          <h2 class="mb-0"><button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">What is the compensation for tutors?</button></h2>
-        </div>
-        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqAccordion">
-          <div class="card-body">Compensation for tutors is competitive and based on the subject, your experience, and the number of hours you teach. Specific rates will be discussed during the interview process.</div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingFive">
-          <h2 class="mb-0"><button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">How do I schedule my tutoring sessions?</button></h2>
-        </div>
-        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#faqAccordion">
-          <div class="card-body">Tutors can schedule their sessions based on their availability using our online scheduling system. You can set your preferred times and update your availability as needed.</div>
-        </div>
-      </div>
+      {% for question in questions %}
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{forloop.counter}}" aria-expanded="true" aria-controls="collapse{{forloop.counter}}">
+                {% if request.COOKIES.lang == "MM" %} 
+                  {{ question.question_mm }} 
+                {% else %} 
+                  {{ question.question_en }} 
+                {% endif %}
+              </button>
+            </h2>
+          </div>
+          <div id="collapse{{forloop.counter}}" class="collapse" aria-labelledby="headingOne" data-parent="#faqAccordion">
+            <div class="card-body">
+              {% if request.COOKIES.lang == "MM" %} 
+              {{ question.answer_mm|linebreaks }} 
+            {% else %} 
+              {{ question.answer_en|linebreaks }} 
+            {% endif %}
+            </div>
+          </div>
+        </div>   
+      {% endfor %}
     </div>
   </section>
 {% endblock %}

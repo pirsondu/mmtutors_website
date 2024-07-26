@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Parent_Question, Tutor_Question
 
 # Create your views here.
 def index_page(request):
@@ -119,7 +120,11 @@ def tutor_events_page(request):
     return render(request, "tutors/events.html")
     
 def tutor_faq_page(request):
-    return render(request, "tutors/faq.html")
+    QuestionSets = Tutor_Question.objects.all()
+    context = {
+        'questions' : QuestionSets
+    }
+    return render(request, "tutors/faq.html", context)
     
 def tutor_terms_page(request):
     return render(request, "tutors/terms.html")
@@ -127,7 +132,11 @@ def tutor_terms_page(request):
 
     
 def parent_faq_page(request):
-    return render(request, "parents/faq.html")
+    QuestionSets = Parent_Question.objects.all()
+    context = {
+        'questions' : QuestionSets
+    }
+    return render(request, "parents/faq.html", context)
 
     
 def parent_tutors_page(request):
