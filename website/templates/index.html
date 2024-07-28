@@ -15,10 +15,7 @@
       
       <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %} ">
         <img src="{{ image.image.url }}" class="d-block w-100" alt="First slide" /> <!-- Replace with the actual path to your image -->
-        {% comment %} <div class="carousel-caption d-none d-md-block">
-          <h5>First Slide</h5>
-          <p>First slide description.</p>
-        </div> {% endcomment %}
+
       </div>
       {% endfor %}
     </div>
@@ -41,7 +38,7 @@
       <div class="row">
         <div class="col-md-4 feature">
           <div class="icon mb-3">
-            <i class="bi bi-person-circle" style="font-size: 3em;"></i>
+            {% include 'icons/tutors.html' %} 
           </div>
           {% if request.COOKIES.lang == "MM" %} <h4>{{ features.mm.topic1.header }}</h4> {% else %} <h3>{{ features.en.topic1.header }} {% endif %}</h3>
           <p>
@@ -53,8 +50,8 @@
           </p>
         </div>
         <div class="col-md-4 feature">
-          <div class="icon mb-3">
-            <i class="bi bi-calendar-check" style="font-size: 3em;"></i>
+          <div class="icon mb-3">        
+            {% include 'icons/calendar.html' %} 
           </div>
           {% if request.COOKIES.lang == "MM" %} <h4>{{ features.mm.topic2.header }}</h4> {% else %} <h3>{{ features.en.topic2.header }} {% endif %}</h3>
           <p>
@@ -67,7 +64,7 @@
         </div>
         <div class="col-md-4 feature">
           <div class="icon mb-3">
-            <i class="bi bi-chat-dots" style="font-size: 3em;"></i>
+            {% include 'icons/interactive.html' %} 
           </div>
           {% if request.COOKIES.lang == "MM" %} <h4>{{ features.mm.topic3.header }}</h4> {% else %} <h3>{{ features.en.topic3.header }} {% endif %}</h3>
           <p>
@@ -89,21 +86,21 @@
     <div class="row">
       <div class="col-md-4 service">
         <div class="icon mb-3">
-          <i class="bi bi-bank" style="font-size: 3em;"></i>
+          {% include "icons/gov.html" %}
         </div>
         <h5>{% if request.COOKIES.lang == "MM" %} {{ services.mm.topic1.header }} {% else %} {{ services.en.topic1.header }} {% endif %}</h5>
         {% comment %} <p>Interactive live classes with real-time feedback.</p> {% endcomment %}
       </div>
       <div class="col-md-4 service">
         <div class="icon mb-3">
-          <i class="bi bi-building" style="font-size: 3em;"></i>
+          {% include "icons/int.html" %}
         </div>
         <h5>{% if request.COOKIES.lang == "MM" %} {{ services.mm.topic2.header }} {% else %} {{ services.en.topic2.header }} {% endif %}</h5>
         {% comment %} <p>Get help whenever you need it from our dedicated support team.</p> {% endcomment %}
       </div>
       <div class="col-md-4 service">
         <div class="icon mb-3">
-          <i class="bi bi-translate" style="font-size: 3em;"></i>
+          {% include "icons/language.html" %}
         </div>
         <h5>{% if request.COOKIES.lang == "MM" %} {{ services.mm.topic3.header }} {% else %} {{ services.en.topic3.header }} {% endif %}</h5>
         {% comment %} <p>Practice what you learn with regular assignments and feedback.</p> {% endcomment %}
