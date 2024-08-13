@@ -29,3 +29,10 @@ class Tutor_Question(models.Model):
     class Meta:
         verbose_name = "Tutor Question"
         verbose_name_plural = "Tutor Questions"
+
+class Achievement(models.Model):
+    title = models.TextField()
+    subtitle = models.TextField(default="", blank=True, null=True)
+
+    def __str__(self):
+        return self.title
