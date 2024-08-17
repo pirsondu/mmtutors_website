@@ -1,15 +1,16 @@
 from django.shortcuts import render
-from .models import Parent_Question, Tutor_Question, HomeImage, Achievement
+from .models import Parent_Question, Tutor_Question, HomeImage, Achievement, Testimonial
 
 # Create your views here.
 
 
 def index_page(request):
     slider = HomeImage.objects.all()
+    testimonials = Testimonial.objects.all()
     context = {'features':
                {
                    'en': {
-                       'header': 'Our Fetures',
+                       'header': 'Our Features',
                        'topic1': {
                            'header': 'Qualified Tutors',
                            'body': '(Learn from the best tutors in the country)'
@@ -24,7 +25,7 @@ def index_page(request):
                        }
                    },
                    'mm': {
-                       'header': "Our Fetures",
+                       'header': "ကျွန်ုပ်တို့၏ အားသာချက်များ",
                        'topic1': {
                            'header': 'အရည်အချင်းပြည့်ဝသော ဆရာများ',
                            'body': '(ပြည်တွင်းက အကောင်းဆုံးဆရာများနှင့် သင်ယူလိုက်ပါ)'
@@ -91,7 +92,8 @@ def index_page(request):
                        }
                    }
                },
-               'slider': slider
+               'slider': slider,
+               'testimonials': testimonials
                }
     return render(request, "index.html", context)
 
@@ -140,6 +142,9 @@ def blog_page(request):
 def vlog_page(request):
     return render(request, "vlog.html")
 
+
+def privacy_page(request):
+    return render(request, "privacy.html")
 
 def tutor_register_page(request):
     return render(request, "tutors/registration.html")

@@ -6,29 +6,10 @@
       <div class="row">
         <div class="col-lg-8 mx-auto text-center">
           <h2 class="mb-4">About Us</h2>
-          <p class="lead mb-5">
+          <p class="lead mb-5" style="line-height: 1.8;">
             {% if request.COOKIES.lang == "MM" %} {{ aboutUs.mm }} {% else %} {{ aboutUs.en }} {% endif %}
           </p>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <h3>Foundation of MMTutors</h3>
-                <p>Established in 2005, MMTutors started with a mission to provide quality education...</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <h3>Expansion and Growth</h3>
-                <p>Expanded services to cover a wider range of subjects and regions...</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <h3>Recent Developments</h3>
-                <p>Introduced innovative learning technologies and online tutoring platforms...</p>
-              </div>
-            </div>
-          </div>
+          
         </div>
 
         <!-- Timeline Section -->
