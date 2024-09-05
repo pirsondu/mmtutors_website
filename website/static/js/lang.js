@@ -1,5 +1,4 @@
 function changeLanguage() {
-    console.log("ABC")
     selected = document.getElementById('langId').value;
     console.log(selected)
     document.cookie = "lang=" + selected + "; domain=;path=/"
@@ -8,6 +7,9 @@ function changeLanguage() {
 
 function setLanguage() {
     let lang = getLang()
+    if (lang == '') {
+        changeLanguage()
+    }
     var language = document.getElementById('langId');
     for(var i, j = 0; i = language.options[j]; j++) {
         if(i.value == lang) {
@@ -30,6 +32,7 @@ function getLang() {
         return c.substring(name.length, c.length);
         }
     }
+
     return "";
 }
 
