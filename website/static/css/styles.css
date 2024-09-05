@@ -1,7 +1,15 @@
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    padding-top: 70px;
+    padding-top: 60px;
     /* Adjust this value if your navbar height is different */
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;    
+    overflow-x: hidden;
+
 }
 
 .bg-yellow {
@@ -9,14 +17,20 @@ body {
     /* Yellow background */
 }
 
+.navbar {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 .navbar .nav-link {
     color: #000 !important;
-    /* Ensure the text color contrasts well with the background */
     transition: color 0.3s;
-    /* Smooth transition for color change */
     font-size: 18px;
-    /* Increase font size */
 
+
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 16px; /* Slightly increase or decrease font size if needed */
 }
 
 .navbar .nav-link:hover {
@@ -103,12 +117,9 @@ footer {
 }
 
 .navbar-brand img {
-    width: 150px;
-    /* Set the width of the logo */
-    height: 50px;
-    /* Set the height of the logo */
+    width: auto;
+    height: 40px;
     object-fit: contain;
-    /* Maintain aspect ratio */
 }
 
 /* For Contact Page */
@@ -147,6 +158,17 @@ footer {
 }
 
 /*  */
+
+.carousel {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.carousel-item img {
+    width: 100%;  /* Makes images full width */
+    height: auto; /* Maintains image aspect ratio */
+}
 
 .testimonial-carousel .carousel-inner {
     margin: 0 auto;
