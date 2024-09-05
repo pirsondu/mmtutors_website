@@ -1,49 +1,138 @@
 {% extends 'base/layout.html' %}
-
+{% load static %}
 {% block body %}
-  <div class="container mt-5 pt-5">
-    <div class="row">
-      <div class="col-md-3">
-        <div class="filter-section">
-          <h4>Filter Tutors</h4>
-          <hr />
-          <div class="form-group">
-            <label for="location">Location:</label>
-            <input type="text" class="form-control" id="location" placeholder="Enter location" />
-          </div>
-          <div class="form-group">
-            <label for="subject">Subject:</label>
-            <input type="text" class="form-control" id="subject" placeholder="Enter subject" />
-          </div>
-          <div class="form-group">
-            <label for="experience">Experience:</label>
-            <select class="form-control" id="experience">
-              <option value="">Select experience</option>
-              <option value="beginner">Beginner</option>
-              <option value="intermediate">Intermediate</option>
-              <option value="advanced">Advanced</option>
-            </select>
-          </div>
-          <button type="button" class="btn btn-primary btn-block" onclick="filterTutors()">Apply Filters</button>
+<div class="container mt-5 pt-5 mb-5">
+  <h1>Find a Tutor</h1>
+  <form>
+    <!-- Student Information -->
+    <div class="mb-3">
+      <label for="studentName" class="form-label">Name of the Student</label>
+      <input type="text" class="form-control" id="studentName" placeholder="Enter student's name">
+    </div>
+
+    <div class="mb-3">
+      <label for="phoneNumber" class="form-label">Phone Number</label>
+      <input type="text" class="form-control" id="phoneNumber" placeholder="Enter phone number">
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email">
+    </div>
+
+    <div class="mb-3">
+      <label for="numStudents" class="form-label">Number of Students</label>
+      <input type="number" class="form-control" id="numStudents" placeholder="Enter number of students">
+    </div>
+
+    <!-- Gender -->
+    <div class="mb-3">
+      <label class="form-label">Gender of the Student</label><br>
+      <input type="radio" id="male" name="gender" value="Male">
+      <label for="male">Male</label><br>
+      <input type="radio" id="female" name="gender" value="Female">
+      <label for="female">Female</label><br>
+      <input type="radio" id="other" name="gender" value="Other">
+      <label for="other">Other</label>
+    </div>
+
+    <!-- Tutor Type -->
+    <div class="mb-3">
+      <label class="form-label">Tutor Type</label><br>
+      <input type="radio" id="subject" name="tutorType" value="Subject" onchange="showTutorFields('subject')">
+      <label for="subject">Academic / Other Subjects</label><br>
+      <input type="radio" id="language" name="tutorType" value="Language" onchange="showTutorFields('language')">
+      <label for="language">Language</label>
+    </div>
+
+    <!-- Subject Choice (only shown if "Subject" is selected) -->
+    <div id="subjectChoices" class="hidden">
+      <div class="mb-3">
+        <label for="subjectTitle" class="form-label">Subject</label>
+        <input type="text" class="form-control" id="subjectTitle" placeholder="Enter subject(s)">
+      </div>
+
+      <div class="mb-3">
+        <label for="grade" class="form-label">Grade</label>
+        <input type="text" class="form-control" id="grade" placeholder="Enter grade">
+      </div>
+    </div>
+
+    <!-- Language Choice (only shown if "Language" is selected) -->
+    <div id="languageChoices" class="hidden">
+      <div class="mb-3">
+        <label class="form-label">Choose Language(s)</label><br>
+        <input type="radio" id="english" name="language" value="English">
+        <label for="english">English</label><br>
+        <input type="radio" id="spanish" name="language" value="Spanish">
+        <label for="spanish">Spanish</label><br>
+        <input type="radio" id="french" name="language" value="French">
+        <label for="french">French</label><br>
+        <input type="radio" id="mandarin" name="language" value="Mandarin">
+        <label for="mandarin">Mandarin</label>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Choose Level</label><br>
+        <input type="radio" id="beginner" name="level" value="Beginner">
+        <label for="beginner">Beginner</label><br>
+        <input type="radio" id="intermediate" name="level" value="Intermediate">
+        <label for="intermediate">Intermediate</label><br>
+        <input type="radio" id="advanced" name="level" value="Advanced">
+        <label for="advanced">Advanced</label>
+      </div>
+    </div>
+
+    <!-- Availability -->
+    <div class="mb-3">
+      <label for="availability" class="form-label">Let us know your available time</label>
+      <div id="ava">
+        <div class="d-flex justify-content-between mb-3 ">
+          <input type="text" class="form-control mr-2" placeholder="Day (e.g., Monday)">
+          <input type="text" class="form-control mr-2" placeholder="From (e.g., 1:00 PM)">
+          <input type="text" class="form-control mr-2" placeholder="To (e.g., 3:00 PM)">
+          <button class="btn btn-decrease disabled" type="button" disabled>-</button>
         </div>
       </div>
-      <section id="tutors" class="col-md-9">
-        <div class="container">
-          <h2 class="text-center">Our Tutors</h2>
-          <div class="row mt-4">
-            <!-- Repeat this block for each tutor -->
-            {% include 'components/tutor.html' %}
-            {% include 'components/tutor.html' %}
-            {% include 'components/tutor.html' %}
-            {% include 'components/tutor.html' %}
-            {% include 'components/tutor.html' %}
-            {% include 'components/tutor.html' %}
-            {% include 'components/tutor.html' %}
-            {% include 'components/tutor.html' %}
-            {% include 'components/tutor.html' %}
-          </div>
-        </div>
-      </section>
+
+      <div class="d-grid gap-2 mb-3">
+        <button class="btn btn-increase" type="button" onclick="addslot()">+</button>
+      </div>
     </div>
-  </div>
+
+
+    <div class="mb-3">
+      <label for="contactPerson" class="form-label">Contact Person Name</label>
+      <input type="text" class="form-control" id="contactPerson" placeholder="Enter contact person name">
+    </div>
+
+    <!-- Type of Learning -->
+    <div class="mb-3">
+      <label class="form-label">Type of Learning</label><br>
+      <input type="radio" id="online" name="learningType" value="Online" onchange="showAddressField('online')">
+      <label for="online">Online</label><br>
+      <input type="radio" id="offline" name="learningType" value="Offline" onchange="showAddressField('offline')">
+      <label for="offline">Offline</label>
+    </div>
+
+    <!-- Address (only shown if "Offline" is selected) -->
+    <div id="offlineAddress" class="hidden">
+      <div class="mb-3">
+        <label for="address" class="form-label">Address</label>
+        <textarea class="form-control" id="address" rows="3" placeholder="Enter address"></textarea>
+      </div>
+    </div>
+
+    <!-- Additional Note -->
+    <div class="mb-3">
+      <label for="additionalNote" class="form-label">Additional Note</label>
+      <textarea class="form-control" id="additionalNote" rows="3"
+        placeholder="Enter any additional information"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<script src="{% static 'js/findtutor.js' %}"></script>
 {% endblock %}
