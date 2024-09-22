@@ -1,26 +1,29 @@
 {% extends 'base/layout.html' %}
+{% load static %}
 
 {% block body %}
-  <section class="container blog-section py-5">
-    <div class="blog-search-filter">
-      <div class="row">
-        <div class="col-md-6 mb-3">
-          <input type="text" id="searchBox" class="form-control" placeholder="Search blog posts..." />
-        </div>
-        <div class="col-md-6">
-          <select id="categoryFilter" class="form-control">
-            <option value="">Filter by category</option>
-            <option value="category1">Category 1</option>
-            <option value="category2">Category 2</option>
-            <option value="category3">Category 3</option>
-            <option value="category3">Video Article</option>
-          </select>
-        </div>
+<section class="container blog-section py-5">
+  <div class="blog-search-filter">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <!-- <input type="text" id="searchBox" class="form-control" placeholder="Search blog posts..." /> -->
+      </div>
+      <div class="col-md-6">
+        <select id="categoryFilter" class="form-control" onchange="changeCategory()">
+          <option value="all">Filter by category</option>
+          {% for category in categories %}
+          <option value="{{ category.title }}">{{ category.title }}</option>
+          {% endfor %}
+        </select>
       </div>
     </div>
+  </div>
 
-    <div class="row" id="blogList">
-        {% include 'components/blog.html' %}
+  <div class="row" id="blogList">
+    {% for post in posts %}
+    {% include 'components/blog.html' %}
+    {% endfor %}
+    <!-- {% include 'components/blog.html' %}
         {% include 'components/video.html' %}
         {% include 'components/blog.html' %}
         {% include 'components/video.html' %}
@@ -28,7 +31,11 @@
         {% include 'components/video.html' %}
         {% include 'components/blog.html' %}
         {% include 'components/video.html' %}
-        {% include 'components/blog.html' %}
-    </div>
-  </section>
+        {% include 'components/blog.html' %} -->
+  </div>
+</section>
+
+
+<script src="{% static 'js/categories.js' %}"></script>
+
 {% endblock %}

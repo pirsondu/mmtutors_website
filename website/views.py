@@ -1,12 +1,17 @@
 from django.shortcuts import render
-from .models import Parent_Question, Tutor_Question, HomeImage, Achievement, Testimonial
+from .models import Parent_Question, Tutor_Question, HomeImage, Achievement, Testimonial, Category, Post, Event, Registration
+from datetime import date
 
+from .forms import RegistrationForm
 # Create your views here.
 
 
 def index_page(request):
     slider = HomeImage.objects.all()
     testimonials = Testimonial.objects.all()
+    featuredPosts = Post.objects.filter(featured = True)
+    today = date.today()
+    upcomingEvents = Event.objects.filter(toPresent = True)
     context = {'features':
                {
                    'en': {
@@ -93,7 +98,9 @@ def index_page(request):
                    }
                },
                'slider': slider,
-               'testimonials': testimonials
+               'testimonials': testimonials,
+               'featuredPosts': featuredPosts,
+               'upcomingEvents': upcomingEvents
                }
     return render(request, "index.html", context)
 
@@ -131,12 +138,29 @@ def contact_page(request):
     return render(request, "contact.html")
 
 
-def blogs_page(request):
-    return render(request, "blogs.html")
+def blogs_page(request, category, category_id='None'):
+    categories = Category.objects.all() 
+    if category == "all":
+        posts = Post.objects.all()
+    else:
+        tmpCategory = Category.objects.get(title = category)
+        posts = Post.objects.filter(categories = tmpCategory.id)
+
+    # print(posts)
+    context = {
+        'categories' : categories,
+        'posts': posts
+    }
+    return render(request, "blogs.html", context)
 
 
-def blog_page(request):
-    return render(request, "blog.html")
+def blog_page(request, slug):
+    post = Post.objects.get(slug=slug)
+    context = {
+        "post": post,
+        "post_tags": post.categories.all(),
+    }
+    return render(request, "blog.html", context)
 
 
 def vlog_page(request):
@@ -151,8 +175,26 @@ def tutor_register_page(request):
 
 
 def tutor_events_page(request):
-    return render(request, "tutors/events.html")
-
+    today = date.today()
+    upcomingEvents = Event.objects.filter(toPresent = True)
+    openRegistration = Event.objects.filter(toPresent = True, eventDate__gte = today)
+    
+    context = {
+        'upcomingEvents' : upcomingEvents,
+        'openRegistration' : openRegistration,
+        'totalEvents': len(openRegistration)
+    }
+    if request.method =='POST':
+        eventInfo = Event.objects.get(pk = request.POST['eventName'])
+        registration = Registration.objects.create(
+            event = eventInfo,
+            guest_name = request.POST['fullName'],
+            guest_email = request.POST['email'],
+            guest_phone = request.POST['phone'],
+        )
+        return render(request, "tutors/events.html", context)
+    else:
+        return render(request, "tutors/events.html", context)
 
 def tutor_faq_page(request):
     QuestionSets = Tutor_Question.objects.all()
@@ -161,10 +203,8 @@ def tutor_faq_page(request):
     }
     return render(request, "tutors/faq.html", context)
 
-
 def tutor_terms_page(request):
     return render(request, "tutors/terms.html")
-
 
 def parent_faq_page(request):
     QuestionSets = Parent_Question.objects.all()

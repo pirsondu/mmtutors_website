@@ -246,3 +246,9 @@ footer {
 .btn-decrease {
     color: rgb(74, 57, 57);
 }
+
+.excerpt-paragraph {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

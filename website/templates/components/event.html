@@ -1,12 +1,12 @@
 <div class="col-md-4 mb-4">
   <div class="card">
-    <img src="https://placehold.co/350x200" class="card-img-top" alt="Event 1" />
+    <img src="{{ event.image.url }}" class="card-img-top" alt="Event 1" />
     <div class="card-body">
-      <h5 class="card-title">Event x</h5>
+      <h5 class="card-title">{{ event.title }}</h5>
       <p class="card-text">
-        <strong>Date:</strong> June 25, 2024<br />
-        <strong>Time:</strong> 10:00 AM - 12:00 PM<br />
-        Overview: This event will cover topics on...
+        <strong>Date:</strong> {{ event.eventDate|date:"j F Y" }}<br />
+        <strong>Time:</strong> {{ event.startTime|time:"g:i a" }} - {{ event.endTime|time:"g:i a" }}<br />
+        Overview: {{ event.info }}
       </p>
     </div>
   </div>

@@ -1,6 +1,5 @@
 function changeLanguage() {
     selected = document.getElementById('langId').value;
-    console.log(selected)
     document.cookie = "lang=" + selected + "; domain=;path=/"
     location.reload()
 }

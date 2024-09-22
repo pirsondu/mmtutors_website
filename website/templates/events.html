@@ -1,21 +1,38 @@
 {% extends 'base/layout.html' %}
 
 {% block body %}
-  <section id="events" class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto text-center">
-          <h2 class="mb-4">Upcoming Events</h2>
-          <p class="lead mb-5">Register for upcoming events by filling the form below:</p>
-        </div>
+<section id="events" class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center">
+        <h2 class="mb-4">Upcoming Events</h2>
+        <p class="lead mb-5">Register for upcoming events by filling the form below:</p>
       </div>
-      <div class="row mb-5">
+    </div>
+    <div class="row mb-5">
 
-        {% include "components/event.html" %}
-        {% include "components/event.html" %}
-        {% include "components/event.html" %}
+      {% for event in upcomingEvents %}
+      {% include 'components/event.html' %}
+      {% empty %}
+      <div class="col-md-12 mb-4">
+        <p class="text-center">There are no upcoming event yet.</p>
       </div>
-      <div class="row">
+      {% endfor %}
+    </div>
+
+    <section id="comment-form">
+      <h2>Your comment</h2>
+      <form action="{% url 'post' post.slug %}" method="POST">
+        {% csrf_token %}
+        {% for form_field in registration_form %}
+        <div class="form-control {% if form_field.errors %}{% endif %}">{{ form_field.label_tag }}
+          {{ form_field }}
+          {{ form_field.errors }}</div>
+        {% endfor %}
+        <button>Submit</button>
+      </form>
+    </section>
+    <!-- <div class="row">
         <div class="col-lg-6 mx-auto">
           <form>
             <div class="form-group">
@@ -43,7 +60,7 @@
           </form>
           <br />
         </div>
-      </div>
-    </div>
-  </section>
+      </div> -->
+  </div>
+</section>
 {% endblock %}

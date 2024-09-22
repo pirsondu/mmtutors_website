@@ -1,71 +1,63 @@
 {% extends 'base/layout.html' %}
 
 {% block body %}
-  <section id="about" class="py-5">
-    <div class="container">
+<section id="about" class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center">
+        <h2 class="mb-4">About Us</h2>
+        <p class="lead mb-5" style="line-height: 1.8;">
+          {% if request.COOKIES.lang == "MM" %} {{ aboutUs.mm }} {% else %} {{ aboutUs.en }} {% endif %}
+        </p>
+
+      </div>
+
+      <!-- Timeline Section -->
+
+      <!-- Achievements Section -->
+    </div>
+    <hr />
+    <div class="achievement">
+      <h3 class="text-center mb-4">Our Achievements</h3>
       <div class="row">
-        <div class="col-lg-8 mx-auto text-center">
-          <h2 class="mb-4">About Us</h2>
-          <p class="lead mb-5" style="line-height: 1.8;">
-            {% if request.COOKIES.lang == "MM" %} {{ aboutUs.mm }} {% else %} {{ aboutUs.en }} {% endif %}
-          </p>
-          
-        </div>
 
-        <!-- Timeline Section -->
+        {% for achievement in achievements %}
 
-        <!-- Achievements Section -->
-      </div>
-      <hr />
-      {% comment %} <div class="row">
-        <div class="col-lg-6">
-          <h3>Establishment Note</h3>
-          <p>Founded in 20XX, MMTutors began with a vision to revolutionize education in Myanmar by leveraging technology to connect students with highly qualified tutors.</p>
-          <img src="https://placehold.co/600x400" class="img-fluid mb-4" alt="Establishment Note Image" />
-        </div>
-        <div class="col-lg-6">
-          <h3>CEO Talk</h3>
-          <p>"At MMTutors, we are committed to empowering students with knowledge and skills that transcend traditional classroom boundaries. Our mission is to make quality education accessible to everyone, no matter where they are."</p>
-          <img src="https://placehold.co/600x400" class="img-fluid mb-4" alt="CEO Talk Image" />
-        </div>
-      </div> {% endcomment %}
-      <div class="achievement">
-        <h3 class="text-center mb-4">Our Achievements</h3>
-        <div class="row">
-
-          {% for achievement in achievements %}
-          
-            <div class="col-md-6">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <h5 class="card-title">{{ achievement.title }}</h5>
-                  <p class="card-text">{{ achievement.subtitle }}</p>
-                </div>
-              </div>
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">{{ achievement.title }}</h5>
+              <p class="card-text">{{ achievement.subtitle }}</p>
             </div>
-          {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
 
 
-        </div>
-      </div>
-      <hr />
-      <div class="row mt-5">
-        <div class="col-lg-6">
-          <h3>Vision</h3>
-          <p>
-            {% if request.COOKIES.lang == "MM" %} {{ vision.mm }} {% else %} {{ vision.en }} {% endif %}
-          </p>
-          <img src="https://placehold.co/600x400" class="img-fluid mb-4" alt="Vision Image" />
-        </div>
-        <div class="col-lg-6">
-          <h3>Mission</h3>
-          <p>
-            {% if request.COOKIES.lang == "MM" %} {{ mission.mm }} {% else %} {{ mission.en }} {% endif %}
-          </p>
-          <img src="https://placehold.co/600x400" class="img-fluid mb-4" alt="Mission Image" />
-        </div>
       </div>
     </div>
-  </section>
-  <div class="container mt-5 pt-5"></div>
+    <hr />
+    <div class="row mt-5">
+      <div class="col-lg-6">
+        <h3>Vision</h3>
+        <p style="
+          height: 100px;
+      ">
+          {% if request.COOKIES.lang == "MM" %} {{ vision.mm }} {% else %} {{ vision.en }} {% endif %}
+        </p>
+        <img src="/public/vision.jpg" class="img-fluid mb-4" alt="Vision Image" />
+      </div>
+      <div class="col-lg-6">
+        <h3>Mission</h3>
+        <p style="
+        height: 100px;
+    ">
+          {% if request.COOKIES.lang == "MM" %} {{ mission.mm }} {% else %} {{ mission.en }} {% endif %}
+        </p>
+        <img src="/public/mission.jpg" class="img-fluid mb-4" alt="Mission Image" />
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container mt-5 pt-5"></div>
 {% endblock %}

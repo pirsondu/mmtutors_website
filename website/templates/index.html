@@ -2,201 +2,274 @@
 {% load static %}
 
 {% block body %}
-  <!-- Photos Section -->
+<!-- Photos Section -->
 
-  <div id="heroCarousel" class="carousel slide hero-carousel" data-ride="carousel">
-    <ol class="carousel-indicators">
-      
-      {% for image in slider %}
-        <li data-target="#heroCarousel" data-slide-to="{{ forloop.counter }}" class="{% if forloop.counter == 1 %}active{% endif %} "></li>
-      {% endfor %}
-    </ol>
-    <div class="carousel-inner">
-      {% for image in slider %}
-      
-      <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %} ">
-        <img src="{{ image.image.url }}" class="d-block w-100" alt="First slide" /> <!-- Replace with the actual path to your image -->
+<div id="heroCarousel" class="carousel slide hero-carousel" data-ride="carousel">
+  <ol class="carousel-indicators">
 
-      </div>
-      {% endfor %}
+    {% for image in slider %}
+    <li data-target="#heroCarousel" data-slide-to="{{ forloop.counter }}"
+      class="{% if forloop.counter == 1 %}active{% endif %} "></li>
+    {% endfor %}
+  </ol>
+  <div class="carousel-inner">
+    {% for image in slider %}
+
+    <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %} ">
+      <img src="{{ image.image.url }}" class="d-block w-100" alt="First slide" />
+      <!-- Replace with the actual path to your image -->
+
     </div>
-    <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+    {% endfor %}
   </div>
+  <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
-  {% comment %}End of Photo Section{% endcomment %}
-  {% comment %}Starting Our Features{% endcomment %}
-  <!-- Our Features -->
-  <section id="features" class="features bg-light">
-    <div class="container">
-      <h2 class="text-center"> {% if request.COOKIES.lang == "MM" %} {{ features.mm.header }} {% else %} {{ features.en.header }} {% endif %} </h2>
-      <div class="row">
-        <div class="col-md-4 feature">
-          <div class="icon mb-3">
-            {% include 'icons/tutors.html' %} 
-          </div>
-          {% if request.COOKIES.lang == "MM" %} <h4>{{ features.mm.topic1.header }}</h4> {% else %} <h3>{{ features.en.topic1.header }} {% endif %}</h3>
-          <p>
-            {% if request.COOKIES.lang == "MM" %} 
-              {{ features.mm.topic1.body }} 
-            {% else %} 
-              {{ features.en.topic1.body }} 
-            {% endif %}
-          </p>
-        </div>
-        <div class="col-md-4 feature">
-          <div class="icon mb-3">        
-            {% include 'icons/calendar.html' %} 
-          </div>
-          {% if request.COOKIES.lang == "MM" %} <h4>{{ features.mm.topic2.header }}</h4> {% else %} <h3>{{ features.en.topic2.header }} {% endif %}</h3>
-          <p>
-            {% if request.COOKIES.lang == "MM" %} 
-              {{ features.mm.topic2.body }} 
-            {% else %} 
-              {{ features.en.topic2.body }} 
-            {% endif %}
-          </p>
-        </div>
-        <div class="col-md-4 feature">
-          <div class="icon mb-3">
-            {% include 'icons/interactive.html' %} 
-          </div>
-          {% if request.COOKIES.lang == "MM" %} <h4>{{ features.mm.topic3.header }}</h4> {% else %} <h3>{{ features.en.topic3.header }} {% endif %}</h3>
-          <p>
-            {% if request.COOKIES.lang == "MM" %} 
-              {{ features.mm.topic3.body }} 
-            {% else %} 
-              {{ features.en.topic3.body }} 
-            {% endif %}
-          </p>
-        </div>
+{% comment %}End of Photo Section{% endcomment %}
+
+<!-- Find or Apply -->
+<div class="container mt-5">
+    {% if request.COOKIES.lang == "MM" %}
+   
+    <h2 class="text-center mb-4"> MMTutors မှ ကြိုဆိုပါတယ်။ </h2>
+    {% else %}
+    
+    <h1 class="text-center mb-4">Welcome to MMTutors </h1>
+    {% endif %}
+
+
+
+  <div class="row">
+    <!-- Academic & Other Subjects Tutor Option -->
+    <div class="col-md-6">
+      <div class="tutor-option">
+        <h3>To Apply as A Tutor</h3>
+        <a href="{% url 'tutor_registration' %}">
+          <button class="apply-btn">Apply Now</button>
+        </a>
       </div>
     </div>
-  </section>
-  {% comment %}End of Our Features{% endcomment %}
-  {% comment %}Start of Our Services{% endcomment %}
-  <section class="container text-center my-5">
-    <h2 class="text-center mb-4"> {% if request.COOKIES.lang == "MM" %} {{ services.mm.header }} {% else %} {{ services.en.header }} {% endif %} </h2>
 
-    <div class="row">
-      <div class="col-md-4 service">
-        <div class="icon mb-3">
-          {% include "icons/gov.html" %}
-        </div>
-        <h5>{% if request.COOKIES.lang == "MM" %} {{ services.mm.topic1.header }} {% else %} {{ services.en.topic1.header }} {% endif %}</h5>
-        {% comment %} <p>Interactive live classes with real-time feedback.</p> {% endcomment %}
-      </div>
-      <div class="col-md-4 service">
-        <div class="icon mb-3">
-          {% include "icons/int.html" %}
-        </div>
-        <h5>{% if request.COOKIES.lang == "MM" %} {{ services.mm.topic2.header }} {% else %} {{ services.en.topic2.header }} {% endif %}</h5>
-        {% comment %} <p>Get help whenever you need it from our dedicated support team.</p> {% endcomment %}
-      </div>
-      <div class="col-md-4 service">
-        <div class="icon mb-3">
-          {% include "icons/language.html" %}
-        </div>
-        <h5>{% if request.COOKIES.lang == "MM" %} {{ services.mm.topic3.header }} {% else %} {{ services.en.topic3.header }} {% endif %}</h5>
-        {% comment %} <p>Practice what you learn with regular assignments and feedback.</p> {% endcomment %}
+    <!-- Language Tutor Option -->
+    <div class="col-md-6">
+      <div class="tutor-option">
+        <h3>To Find a Tutor</h3>
+        <a href="{% url 'parents_tutors' %}">
+          <button class="apply-btn">Find Now</button>
+        </a>
       </div>
     </div>
-  </section>
-  {% comment %}End of Our Services{% endcomment %}
-  {% comment %}Start of Student Testimonials{% endcomment %}
-  <section id="testimonials" class="py-5 bg-light">
-
+  </div>
+</div>
+{% comment %}Starting Our Features{% endcomment %}
+<!-- Our Features -->
+<section id="features" class="features bg-light">
+  <div class="container">
+    <h2 class="text-center"> {% if request.COOKIES.lang == "MM" %} {{ features.mm.header }} {% else %} {{ features.en.header }} {% endif %} </h2>
     <div class="row">
-      <div class="col-md-8 offset-md-2">
-          <h2 class="text-center mb-5">{% if request.COOKIES.lang == "MM" %} {{ testimonials.mm.header }} {% else %} {{ testimonials.en.header }} {% endif %}</h2>
+      <div class="col-md-4 feature">
+        <div class="icon mb-3">
+          {% include 'icons/tutors.html' %}
+        </div>
+        {% if request.COOKIES.lang == "MM" %} <h4>{{ features.mm.topic1.header }}</h4> {% else %} <h3>{{ features.en.topic1.header }} {% endif %}</h3>
+        <p>
+          {% if request.COOKIES.lang == "MM" %}
+          {{ features.mm.topic1.body }}
+          {% else %}
+          {{ features.en.topic1.body }}
+          {% endif %}
+        </p>
+      </div>
+      <div class="col-md-4 feature">
+        <div class="icon mb-3">
+          {% include 'icons/calendar.html' %}
+        </div>
+        {% if request.COOKIES.lang == "MM" %} <h4>{{ features.mm.topic2.header }}</h4> {% else %} <h3>{{ features.en.topic2.header }} {% endif %}</h3>
+        <p>
+          {% if request.COOKIES.lang == "MM" %}
+          {{ features.mm.topic2.body }}
+          {% else %}
+          {{ features.en.topic2.body }}
+          {% endif %}
+        </p>
+      </div>
+      <div class="col-md-4 feature">
+        <div class="icon mb-3">
+          {% include 'icons/interactive.html' %}
+        </div>
+        {% if request.COOKIES.lang == "MM" %} <h4>{{ features.mm.topic3.header }}</h4> {% else %} <h3> {{ features.en.topic3.header }} </h3>{% endif %}
+        <p>
+          {% if request.COOKIES.lang == "MM" %}
+          {{ features.mm.topic3.body }}
+          {% else %}
+          {{ features.en.topic3.body }}
+          {% endif %}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% comment %}End of Our Features{% endcomment %}
+{% comment %}Start of Our Services{% endcomment %}
+<section class="container text-center my-5">
+  <h2 class="text-center mb-4"> {% if request.COOKIES.lang == "MM" %} {{ services.mm.header }} {% else %} {{ services.en.header }} {% endif %} </h2>
 
-          <div id="testimonialCarousel" class="carousel slide testimonial-carousel" data-ride="carousel">
-              <div class="carousel-inner">
-                  {% for testimonial in testimonials %}
-                    <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %} ">
-                      <div class="testimonial-item">
-                          <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}"> <!-- Replace with actual image paths -->
-                          <h5>
-                            {{ testimonial.name }}
-                          </h5>
-                          <div class="rating">
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                          </div>
-                          <p style="line-height: 1.8;">
-                            {{ testimonial.review }}
-                          </p>
-                      </div>
-                  </div>
-                  {% endfor %}
-                  
+  <div class="row">
+    <div class="col-md-4 service">
+      <div class="icon mb-3">
+        {% include "icons/gov.html" %}
+      </div>
+      <h5>{% if request.COOKIES.lang == "MM" %} {{ services.mm.topic1.header }} {% else %} {{ services.en.topic1.header }} {% endif %}</h5>
+      {% comment %} <p>Interactive live classes with real-time feedback.</p> {% endcomment %}
+    </div>
+    <div class="col-md-4 service">
+      <div class="icon mb-3">
+        {% include "icons/int.html" %}
+      </div>
+      <h5>{% if request.COOKIES.lang == "MM" %} {{ services.mm.topic2.header }} {% else %} {{ services.en.topic2.header }} {% endif %}</h5>
+      {% comment %} <p>Get help whenever you need it from our dedicated support team.</p> {% endcomment %}
+    </div>
+    <div class="col-md-4 service">
+      <div class="icon mb-3">
+        {% include "icons/language.html" %}
+      </div>
+      <h5>{% if request.COOKIES.lang == "MM" %} {{ services.mm.topic3.header }} {% else %} {{ services.en.topic3.header }} {% endif %}</h5>
+      {% comment %} <p>Practice what you learn with regular assignments and feedback.</p> {% endcomment %}
+    </div>
+  </div>
+</section>
+{% comment %}End of Our Services{% endcomment %}
+{% comment %}Start of Student Testimonials{% endcomment %}
+<section id="testimonials" class="py-5 bg-light">
+
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h2 class="text-center mb-5">
+        {% if request.COOKIES.lang == "MM" %} အသုံးပြုသူတို့ရဲ့ စကားသံ {% else %} Testimonials {% endif %}
+      </h2>
+
+      <div id="testimonialCarousel" class="carousel slide testimonial-carousel" data-ride="carousel">
+        <div class="carousel-inner">
+          {% for testimonial in testimonials %}
+          <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %} ">
+            <div class="testimonial-item">
+              <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}">
+              <!-- Replace with actual image paths -->
+              <h5>
+                {{ testimonial.name }}
+              </h5>
+              <div class="rating">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
               </div>
-              <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-              </a>
+              <p style="line-height: 1.8;">
+                {{ testimonial.review }}
+              </p>
+            </div>
           </div>
+          {% endfor %}
+
+        </div>
+        <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
+    </div>
   </div>
-  </section>
-  {% comment %}End of Student Testimonials{% endcomment %}
+</section>
+{% comment %}End of Student Testimonials{% endcomment %}
 
-  {% comment %}Start of Featured Blogs{% endcomment %}
-  <section class="container my-5">
-    <h2 class="text-center mb-4">Featured Blogs</h2>
-    <div class="row">
-      {% include 'components/blog.html' %}
-      {% include 'components/blog.html' %}
-      {% include 'components/blog.html' %}
-      {% include 'components/blog.html' %}
-      {% include 'components/blog.html' %}
-      {% include 'components/blog.html' %}
+{% comment %}Start of Featured Blogs{% endcomment %}
+<section class="container my-5">
+  <h2 class="text-center mb-4">Featured Blogs</h2>
+  <div class="row">
+    {% for post in featuredPosts %}
+    {% include 'components/blog.html' %}
+    {% endfor %}
+  </div>
+</section>
+{% comment %}End of Featured Blogs{% endcomment %}
 
+<section id="events" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center">Upcoming Events</h2>
+    <div class="row mt-3">
+      <!-- Event 1 -->
+      {% for event in upcomingEvents %}
+      {% include 'components/event.html' %}
+      {% empty %}
+      <div class="col-md-12 mb-4">
+        <p class="text-center">There are no upcoming event yet.</p>
+      </div>
+      {% endfor %}
     </div>
-  </section>
-  {% comment %}End of Featured Blogs{% endcomment %}
+  </div>
+</section>
 
-  <section id="events" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center">Upcoming Events</h2>
-      <div class="row mt-3">
-        <!-- Event 1 -->
-        {% include 'components/event.html' %}
-        {% include 'components/event.html' %}
-        {% include 'components/event.html' %}
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Contact Us</h2>
+
+  <div class="row">
+    <!-- Address & Phone -->
+    <div class="col-md-6 mb-4">
+      <h4>Our Office</h4>
+      <p><strong>Address:</strong> Building (4), Room (102), Thanthumar Road, 24th Ward, Thingangyun Township, Yangon
+      </p>
+      <p><strong>Phone:</strong> +123 456 7890</p>
+      <p><strong>Email:</strong> contact@company.com</p>
+
+      <h4 class="mt-4">Follow Us</h4>
+      <a href="https://www.facebook.com/MMtutorsLanguageAcademy" class="me-3" target="_blank">
+        <i class="bi bi-facebook"></i> Facebook
+      </a>
+    </div>
+
+    <!-- Google Map -->
+    <div class="col-md-6 mb-4">
+      <h4>Find Us on Google Map</h4>
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345096475!2d144.95592301531856!3d-37.817209979751554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577a7c5c2d59e9e!2sEducation%20Street!5e0!3m2!1sen!2sus!4v1600127552390!5m2!1sen!2sus"
+          width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+          tabindex="0">
+        </iframe>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <section id="contact" class="py-5">
-    <div class="container">
-      <h2 class="text-center">Contact Us</h2>
-      <p class="text-center">Have questions? Get in touch with us!</p>
-      <form class="text-center">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Your Name" required />
-        </div>
-        <div class="form-group">
-          <input type="email" class="form-control" placeholder="Your Email" required />
-        </div>
-        <div class="form-group">
-          <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Send Message</button>
-      </form>
-    </div>
-  </section>
+<!-- 
+<section id="contact" class="py-5">
+  <div class="container">
+    <h2 class="text-center">Contact Us</h2>
+    <p class="text-center">Have questions? Get in touch with us!</p>
+    <form class="text-center">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Your Name" required />
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Your Email" required />
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+  </div>
+</section> -->
 {% endblock %}

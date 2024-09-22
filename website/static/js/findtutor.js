@@ -15,17 +15,6 @@ function showTutorFields(val) {
     }
 }
 
-function showAddressField(type) {
-    const learningType = type;
-    const addressField = document.getElementById('offlineAddress');
-    console.log(learningType)
-    if (learningType === 'offline') {
-        addressField.classList.remove('hidden');
-    } else {
-        addressField.classList.add('hidden');
-    }
-}
-
 function addslot() {
     console.log("ABC")
     const div = document.createElement('div');

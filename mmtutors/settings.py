@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-q^q^5gol3motj0p=jm#3-frb@wru!va6^89cf(0in364wn=dcq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['duwunaung.pythonanywhere.com']
 
 
 # Application definition
@@ -106,8 +106,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
-
+TIME_ZONE = 'Asia/Rangoon'
+TIME_INPUT_FORMATS = '%H:%M'
 USE_I18N = True
 
 USE_TZ = True
