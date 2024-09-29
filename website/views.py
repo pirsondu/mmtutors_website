@@ -156,9 +156,11 @@ def blogs_page(request, category, category_id='None'):
 
 def blog_page(request, slug):
     post = Post.objects.get(slug=slug)
+    relatedPosts = Post.objects.filter(categories__in = post.categories.all()).exclude(title=post.title)[:3]
     context = {
         "post": post,
         "post_tags": post.categories.all(),
+        "related_posts": relatedPosts
     }
     return render(request, "blog.html", context)
 

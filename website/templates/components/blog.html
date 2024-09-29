@@ -1,6 +1,10 @@
 <div class="col-md-4 blog-post pt-5" data-category="category1">
   <div class="card">
+    {% if post.image.url != None %}
     <img src="{{ post.image.url }}" class="card-img-top" alt="..." />
+    {% else %}
+    <iframe class="embed-responsive-item" height="200px" src="https://www.youtube.com/embed/{{ post.videoId }}"></iframe>
+    {% endif %}
     <div class="card-body">
       <h5 class="card-title">{{ post.title }}</h5>
       <p class="card-text excerpt-paragraph">{{ post.excerpt }}</p>

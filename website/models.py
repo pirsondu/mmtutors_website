@@ -58,11 +58,13 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=150)
     excerpt = models.CharField(max_length=200)
-    image = models.ImageField(upload_to="images", null=True)
+    image = models.ImageField(upload_to="images", null=True, blank=True)
     date = models.DateField(auto_now=True)
     slug = models.SlugField(unique=True, db_index=True)
     content = models.TextField(validators=[MinLengthValidator(10)])
     categories = models.ManyToManyField(Category)
+    isVideo = models.BooleanField(default=False)
+    videoId = models.CharField(max_length=200, null = True, blank = True)
     featured = models.BooleanField(default=False)
 
     def __str__(self):
