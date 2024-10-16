@@ -1,6 +1,10 @@
 from django.shortcuts import render
-from .models import Parent_Question, Tutor_Question, HomeImage, Achievement, Testimonial, Category, Post, Event, Registration
+
+from django.core.paginator import Paginator
+
+from .models import Parent_Question, Tutor_Question, HomeImage, Achievement, Testimonial, Category, Post, Event, Registration, Enquiry, Job
 from datetime import date
+import json
 
 from .forms import RegistrationForm
 # Create your views here.
@@ -104,7 +108,6 @@ def index_page(request):
                }
     return render(request, "index.html", context)
 
-
 def about_page(request):
     
     achievements = Achievement.objects.all()
@@ -129,30 +132,28 @@ def about_page(request):
     }
     return render(request, "about.html", context)
 
-
 def features_page(request):
     return render(request, "features.html")
-
 
 def contact_page(request):
     return render(request, "contact.html")
 
-
 def blogs_page(request, category, category_id='None'):
     categories = Category.objects.all() 
     if category == "all":
-        posts = Post.objects.all()
+        posts = Post.objects.all().order_by('-date')
     else:
         tmpCategory = Category.objects.get(title = category)
-        posts = Post.objects.filter(categories = tmpCategory.id)
-
+        posts = Post.objects.filter(categories = tmpCategory.id).order_by('-date')
+    paginator = Paginator(posts, 9)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     # print(posts)
     context = {
         'categories' : categories,
-        'posts': posts
+        'posts': page_obj
     }
     return render(request, "blogs.html", context)
-
 
 def blog_page(request, slug):
     post = Post.objects.get(slug=slug)
@@ -164,17 +165,14 @@ def blog_page(request, slug):
     }
     return render(request, "blog.html", context)
 
-
 def vlog_page(request):
     return render(request, "vlog.html")
-
 
 def privacy_page(request):
     return render(request, "privacy.html")
 
 def tutor_register_page(request):
     return render(request, "tutors/registration.html")
-
 
 def tutor_events_page(request):
     today = date.today()
@@ -215,6 +213,89 @@ def parent_faq_page(request):
     }
     return render(request, "parents/faq.html", context)
 
-
 def parent_tutors_page(request):
-    return render(request, "parents/tutors.html")
+
+    
+    if request.method =='POST':
+        today = date.today()
+        da = request.body
+        da = str(da).split("&")
+        availableTime = ""
+        count = 0
+        for time in da:
+            if time.startswith("timeslot"):
+                value = time.split("=")
+                if availableTime == "":
+                    availableTime = value[1]
+                else:
+                    timeValue = value[1].replace("%3A", ":")
+                    timeValue = timeValue.replace("+", "")
+                    timeValue = timeValue.replace("'", "")
+                    if timeValue == "":
+                        timeValue = "No Preference"
+                    if count%3 == 0:
+                        availableTime += "\n"
+                        availableTime += str(timeValue)
+                    else:
+                        availableTime += "-" + str(timeValue)
+                
+                count += 1
+
+        if request.POST['tutorType'] == "Academic":
+            language = "N.A"
+            level = "N.A"
+            subject = request.POST['subject']
+            grade = request.POST['grade']
+        else:
+            subject = "N.A"
+            grade = "N.A"
+            language = request.POST['language']
+            level = request.POST['level']
+
+        # print(da[2])
+        enquiry = Enquiry.objects.create(
+            name = request.POST['cName'],
+            phone = request.POST['phone'],
+            email = request.POST['email'],
+            studentCount = request.POST['studentCount'],
+            studentGender = request.POST['gender'],
+            tutorType = request.POST['tutorType'],
+            subject = subject,
+            grade = grade,
+            language = language,
+            level = level,
+            availableTime = availableTime,
+            learningStyle = request.POST['learningType'],
+            address = request.POST['address'],
+            note = request.POST['note'],
+        )
+        return render(request, "thz.html")
+    else:
+        return render(request, "parents/tutors.html")
+
+
+
+def jobs_page(request):
+    jobs = Job.objects.all().order_by('-date')
+    paginator = Paginator(jobs, 9)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {
+        'jobs': page_obj
+    }
+    return render(request, "jobs.html", context)
+
+def job_page(request, slug):
+    job = Job.objects.get(slug=slug)
+    context = {
+        "job": job
+    }
+    return render(request, "job.html", context)
+
+
+
+
+
+
+
+

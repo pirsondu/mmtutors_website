@@ -88,3 +88,39 @@ class Registration(models.Model):
     guest_email = models.EmailField()
     guest_phone = models.CharField(max_length=20)
     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name = "events")
+
+class Enquiry(models.Model):
+    name = models.CharField(max_length=150)
+    phone = models.CharField(max_length=30)
+    email = models.CharField(max_length=120)
+    studentCount = models.IntegerField()
+    studentGender = models.CharField(max_length=30)
+    tutorType = models.CharField(max_length=20)
+    subject = models.CharField(default = "N.A", max_length=120)
+    grade = models.CharField(default = "N.A", max_length=120)
+    language = models.CharField(default = "N.A", max_length=120)
+    level = models.CharField(default = "N.A", max_length=120)
+    availableTime = models.TextField()
+    learningStyle = models.CharField(max_length=20)
+    address = models.CharField(max_length=250)
+    note = models.TextField(blank=True, null=True)
+    date = models.DateField(auto_now=True)
+    arranged = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.name}"
+
+    class Meta:
+        verbose_name_plural = "enquiries"
+
+
+class Job(models.Model):
+    title = models.CharField(max_length=150)
+    salary = models.CharField(max_length=30)
+    date = models.DateField(auto_now=True)
+    slug = models.SlugField(unique=True, db_index=True)
+    content = models.TextField(validators=[MinLengthValidator(10)])
+    isClosed = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.title

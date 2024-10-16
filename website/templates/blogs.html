@@ -23,15 +23,29 @@
     {% for post in posts %}
     {% include 'components/blog.html' %}
     {% endfor %}
-    <!-- {% include 'components/blog.html' %}
-        {% include 'components/video.html' %}
-        {% include 'components/blog.html' %}
-        {% include 'components/video.html' %}
-        {% include 'components/blog.html' %}
-        {% include 'components/video.html' %}
-        {% include 'components/blog.html' %}
-        {% include 'components/video.html' %}
-        {% include 'components/blog.html' %} -->
+  </div>
+
+  <br>
+  <div class="text-center">
+    <ul class="pagination">
+
+      {% if posts.has_previous %}
+      <li class="page-item"><a class="page-link" href="?page=1">&laquo; First</a></li>
+      <li class="page-item"><a class="page-link" href="?page={{ posts.previous_page_number }}">Previous</a></li>
+      {% endif %}
+      <li class="page-item disabled">
+        <a class="page-link" href="#">
+          Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+        </a>
+      </li>
+
+
+      {% if posts.has_next %}
+
+      <li class="page-item"><a class="page-link" href="?page={{ posts.next_page_number }}">Next</a></li>
+      <li class="page-item"><a class="page-link" href="?page={{ posts.paginator.num_pages }}">Last &raquo;</a></li>
+      {% endif %}
+    </ul>
   </div>
 </section>
 

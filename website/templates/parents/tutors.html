@@ -3,27 +3,28 @@
 {% block body %}
 <div class="container mt-5 pt-5 mb-5">
   <h1>Find a Tutor</h1>
-  <form>
+  <form action="{% url 'parents_tutors' %}" method="POST">      
+    {% csrf_token %}
     <!-- Student Information -->
 
     <div class="mb-3">
       <label for="contactPerson" class="form-label">Contact Person Name</label>
-      <input type="text" class="form-control" id="contactPerson" placeholder="Enter contact person name">
+      <input type="text" name="cName" class="form-control" id="contactPerson" placeholder="Enter contact person name">
     </div>
 
     <div class="mb-3">
       <label for="phoneNumber" class="form-label">Phone Number</label>
-      <input type="text" class="form-control" id="phoneNumber" placeholder="Enter phone number">
+      <input type="text"  name="phone" class="form-control" id="phoneNumber" placeholder="Enter phone number">
     </div>
 
     <div class="mb-3">
       <label for="email" class="form-label">Email</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email">
+      <input type="email" name="email" class="form-control" id="email" placeholder="Enter email">
     </div>
 
     <div class="mb-3">
       <label for="numStudents" class="form-label">Number of Students</label>
-      <input type="number" class="form-control" id="numStudents" placeholder="Enter number of students">
+      <input type="number" name="studentCount" class="form-control" id="numStudents" placeholder="Enter number of students">
     </div>
 
     <!-- Gender -->
@@ -40,7 +41,7 @@
     <!-- Tutor Type -->
     <div class="mb-3">
       <label class="form-label">Tutor Type</label><br>
-      <input type="radio" id="subject" name="tutorType" value="Subject" onchange="showTutorFields('subject')">
+      <input type="radio" id="subject" name="tutorType" value="Academic" onchange="showTutorFields('subject')">
       <label for="subject">Academic / Other Subjects</label><br>
       <input type="radio" id="language" name="tutorType" value="Language" onchange="showTutorFields('language')">
       <label for="language">Language</label>
@@ -50,12 +51,12 @@
     <div id="subjectChoices" class="hidden">
       <div class="mb-3">
         <label for="subjectTitle" class="form-label">Subject</label>
-        <input type="text" class="form-control" id="subjectTitle" placeholder="Enter subject(s)">
+        <input type="text" name="subject" class="form-control" id="subjectTitle" placeholder="Enter subject(s)">
       </div>
 
       <div class="mb-3">
         <label for="grade" class="form-label">Grade</label>
-        <input type="text" class="form-control" id="grade" placeholder="Enter grade">
+        <input type="text" name="grade" class="form-control" id="grade" placeholder="Enter grade">
       </div>
     </div>
 
@@ -63,12 +64,12 @@
     <div id="languageChoices" class="hidden">
       <div class="mb-3">
         <label for="language" class="form-label">Language</label>
-        <input type="text" class="form-control" id="language" placeholder="Enter language">
+        <input type="text" name="language" class="form-control" id="language" placeholder="Enter language">
       </div>
 
       <div class="mb-3">
         <label for="level" class="form-label">Choose Level</label>
-        <input type="text" class="form-control" id="level" placeholder="Enter level (e.g. beginner, intermediate)">
+        <input type="text" name="level" class="form-control" id="level" placeholder="Enter level (e.g. beginner, intermediate)">
       </div>
       <!-- <div class="mb-3">
         <label class="form-label">Choose Language(s)</label><br>
@@ -98,9 +99,9 @@
       <label for="availability" class="form-label">Let us know your available time</label>
       <div id="ava">
         <div class="d-flex justify-content-between mb-3 ">
-          <input type="text" class="form-control mr-2" placeholder="Day (e.g., Monday)">
-          <input type="text" class="form-control mr-2" placeholder="From (e.g., 1:00 PM)">
-          <input type="text" class="form-control mr-2" placeholder="To (e.g., 3:00 PM)">
+          <input type="text" class="form-control mr-2" name="timeslot" placeholder="Day (e.g., Monday)">
+          <input type="text" class="form-control mr-2" name="timeslot" placeholder="From (e.g., 1:00 PM)">
+          <input type="text" class="form-control mr-2" name="timeslot" placeholder="To (e.g., 3:00 PM)">
           <button class="btn btn-decrease disabled" type="button" disabled>-</button>
         </div>
       </div>
@@ -125,7 +126,7 @@
     <div id="offlineAddress">
       <div class="mb-3">
         <label for="address" class="form-label">Address</label>
-        <textarea class="form-control" id="address" rows="3" placeholder="Enter address"></textarea>
+        <textarea class="form-control" name="address" id="address" rows="3" placeholder="Enter address"></textarea>
       </div>
     </div>
 
@@ -133,7 +134,7 @@
     <div class="mb-3">
       <label for="additionalNote" class="form-label">Additional Note</label>
       <textarea class="form-control" id="additionalNote" rows="3"
-        placeholder="Enter any additional information"></textarea>
+        placeholder="Enter any additional information" name="note"></textarea>
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

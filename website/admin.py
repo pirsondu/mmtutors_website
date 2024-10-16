@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Parent_Question, Tutor_Question, HomeImage, Achievement, Testimonial, Category, Post, Event, Registration
+from .models import Parent_Question, Tutor_Question, HomeImage, Achievement, Testimonial, Category, Post, Event, Registration, Enquiry, Job
+
 class PostAdmin (admin.ModelAdmin):
     list_filter = ("categories",)
     list_display = ("title", "date", "excerpt")
@@ -8,6 +9,16 @@ class PostAdmin (admin.ModelAdmin):
 class RegistrationAdmin (admin.ModelAdmin):
     list_filter = ("event",)
     list_display = ("guest_name", "guest_email", "guest_phone", "event")
+
+class EnquiryAdmin (admin.ModelAdmin):
+    list_filter = ("tutorType", "arranged", "grade", "language", "subject")
+    list_display = ("name", "phone", "email", "studentCount", "tutorType", "learningStyle", "date", "arranged")
+
+
+class JobAdmin (admin.ModelAdmin):
+    list_display = ("date", "title", "salary", "isClosed")
+    prepopulated_fields = {"slug": ("title",)}
+
 
 admin.site.register(Parent_Question)
 admin.site.register(Tutor_Question)
@@ -18,5 +29,7 @@ admin.site.register(Category)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Event)
 admin.site.register(Registration, RegistrationAdmin)
+admin.site.register(Enquiry, EnquiryAdmin)
+admin.site.register(Job, JobAdmin)
 
 

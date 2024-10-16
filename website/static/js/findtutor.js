@@ -16,7 +16,6 @@ function showTutorFields(val) {
 }
 
 function addslot() {
-    console.log("ABC")
     const div = document.createElement('div');
     div.classList.add('d-flex')
     div.classList.add('mb-3')
@@ -26,11 +25,14 @@ function addslot() {
     inputDay.classList.add('mr-2')
     inputDay.placeholder = 'Day (e.g., Monday)'
     inputDay.type = 'text'
+    console.log("FINDING NAME")
+    inputDay.name = "timeslot"
     div.appendChild(inputDay)
 
     const inputStart = document.createElement('input');
     inputStart.classList.add('form-control')
     inputStart.classList.add('mr-2')
+    inputStart.name = 'timeslot';
     inputStart.placeholder = 'From (e.g., 1:00 PM)'
     inputStart.type = 'text'
     div.appendChild(inputStart)
@@ -38,6 +40,7 @@ function addslot() {
 
     const inputEnd = document.createElement('input');
     inputEnd.classList.add('form-control')
+    inputEnd.name = 'timeslot';
     inputEnd.classList.add('mr-2')
     inputEnd.placeholder = 'To (e.g., 3:00 PM)'
     inputEnd.type = 'text'
@@ -59,6 +62,5 @@ function addslot() {
 }
 
 function removeslot(_this) {
-    console.log("ABC")
     $(_this).parent().remove();
 }

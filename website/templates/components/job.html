@@ -1,0 +1,12 @@
+<div class="col-md-4 blog-post pt-5" data-category="category1">
+  <div class="card text-center">
+    <div class="card-body">
+      <h5 class="card-title text-center">{{ job.title }}</h5>
+      <p class="card-text excerpt-paragraph text-center">Salary: {{ job.salary }}</p>
+      <a href="/job/{{job.slug}}" class="btn btn-primary">View Detail</a>
+    </div>
+    <div class="card-footer text-muted">
+      Posted on <time>{{ job.date|date:'d M Y' }}</time>
+    </div>
+  </div>
+</div>
