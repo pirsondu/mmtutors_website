@@ -7,31 +7,12 @@
   <div class="row" id="blogList">
     {% for job in jobs %}
       {% include 'components/job.html' %}
+      {% empty %}
+      <div class="col-md-12 mb-4">
+        <p class="text-center">No available position at the moment!</p>
+      </div>
     {% endfor %}
   </div>
-
-  <!-- <br>
-  <div class="text-center">
-    <ul class="pagination">
-
-      {% if jobs.has_previous %}
-      <li class="page-item"><a class="page-link" href="?page=1">&laquo; First</a></li>
-      <li class="page-item"><a class="page-link" href="?page={{ jobs.previous_page_number }}">Previous</a></li>
-      {% endif %}
-      <li class="page-item disabled">
-        <a class="page-link" href="#">
-          Page {{ jobs.number }} of {{ jobs.paginator.num_pages }}.
-        </a>
-      </li>
-
-
-      {% if jobs.has_next %}
-
-      <li class="page-item"><a class="page-link" href="?page={{ jobs.next_page_number }}">Next</a></li>
-      <li class="page-item"><a class="page-link" href="?page={{ jobs.paginator.num_pages }}">Last &raquo;</a></li>
-      {% endif %}
-    </ul>
-  </div> -->
 </section>
 
 

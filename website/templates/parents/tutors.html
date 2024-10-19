@@ -9,28 +9,28 @@
 
     <div class="mb-3">
       <label for="contactPerson" class="form-label">Contact Person Name</label>
-      <input type="text" name="cName" class="form-control" id="contactPerson" placeholder="Enter contact person name">
+      <input type="text" name="cName" class="form-control" id="contactPerson" placeholder="Enter contact person name" required>
     </div>
 
     <div class="mb-3">
       <label for="phoneNumber" class="form-label">Phone Number</label>
-      <input type="text"  name="phone" class="form-control" id="phoneNumber" placeholder="Enter phone number">
+      <input type="text"  name="phone" class="form-control" id="phoneNumber" placeholder="Enter phone number" required>
     </div>
 
     <div class="mb-3">
       <label for="email" class="form-label">Email</label>
-      <input type="email" name="email" class="form-control" id="email" placeholder="Enter email">
+      <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required>
     </div>
 
     <div class="mb-3">
       <label for="numStudents" class="form-label">Number of Students</label>
-      <input type="number" name="studentCount" class="form-control" id="numStudents" placeholder="Enter number of students">
+      <input type="number" name="studentCount" class="form-control" id="numStudents" placeholder="Enter number of students" required>
     </div>
 
     <!-- Gender -->
     <div class="mb-3">
       <label class="form-label">Gender of the Student</label><br>
-      <input type="radio" id="male" name="gender" value="Male">
+      <input type="radio" id="male" name="gender" value="Male" required>
       <label for="male">Male</label><br>
       <input type="radio" id="female" name="gender" value="Female">
       <label for="female">Female</label><br>
@@ -41,7 +41,7 @@
     <!-- Tutor Type -->
     <div class="mb-3">
       <label class="form-label">Tutor Type</label><br>
-      <input type="radio" id="subject" name="tutorType" value="Academic" onchange="showTutorFields('subject')">
+      <input type="radio" id="subject" name="tutorType" value="Academic" onchange="showTutorFields('subject')" required>
       <label for="subject">Academic / Other Subjects</label><br>
       <input type="radio" id="language" name="tutorType" value="Language" onchange="showTutorFields('language')">
       <label for="language">Language</label>
@@ -116,7 +116,7 @@
     <!-- Type of Learning -->
     <div class="mb-3">
       <label class="form-label">Type of Learning</label><br>
-      <input type="radio" id="online" name="learningType" value="Online">
+      <input type="radio" id="online" name="learningType" value="Online" required>
       <label for="online">Online</label><br>
       <input type="radio" id="offline" name="learningType" value="Offline">
       <label for="offline">Offline</label>

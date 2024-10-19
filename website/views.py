@@ -223,6 +223,7 @@ def parent_tutors_page(request):
         availableTime = ""
         count = 0
         for time in da:
+            # print(time)
             if time.startswith("timeslot"):
                 value = time.split("=")
                 if availableTime == "":
@@ -240,7 +241,9 @@ def parent_tutors_page(request):
                         availableTime += "-" + str(timeValue)
                 
                 count += 1
-
+        availableTime = availableTime.replace("%2C+", ", ")
+        if availableTime == "":
+            availableTime = "No Preference"
         if request.POST['tutorType'] == "Academic":
             language = "N.A"
             level = "N.A"
@@ -252,7 +255,6 @@ def parent_tutors_page(request):
             language = request.POST['language']
             level = request.POST['level']
 
-        # print(da[2])
         enquiry = Enquiry.objects.create(
             name = request.POST['cName'],
             phone = request.POST['phone'],
@@ -273,10 +275,8 @@ def parent_tutors_page(request):
     else:
         return render(request, "parents/tutors.html")
 
-
-
 def jobs_page(request):
-    jobs = Job.objects.all().order_by('-date')
+    jobs = Job.objects.filter(isClosed = False).order_by('-date')
     paginator = Paginator(jobs, 9)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
