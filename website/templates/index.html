@@ -38,10 +38,10 @@
 <div class="container mt-5">
     {% if request.COOKIES.lang == "MM" %}
    
-    <h2 class="text-center mb-4"> MMTutors မှ ကြိုဆိုပါတယ်။ </h2>
+    <h4 class="text-center mb-4"> MMTutors မှ ကြိုဆိုပါတယ်။ </h4>
     {% else %}
     
-    <h1 class="text-center mb-4">Welcome to MMTutors </h1>
+    <h3 class="text-center mb-4">Welcome to MMTutors </h3>
     {% endif %}
 
 
@@ -50,7 +50,7 @@
     <!-- Academic & Other Subjects Tutor Option -->
     <div class="col-md-6">
       <div class="tutor-option">
-        <h3>To Apply as A Tutor</h3>
+        <h5>To Apply as A Tutor</h5>
         <a href="{% url 'tutor_registration' %}">
           <button class="apply-btn">Apply Now</button>
         </a>
@@ -60,7 +60,7 @@
     <!-- Language Tutor Option -->
     <div class="col-md-6">
       <div class="tutor-option">
-        <h3>To Find a Tutor</h3>
+        <h5>To Find a Tutor</h5>
         <a href="{% url 'parents_tutors' %}">
           <button class="apply-btn">Find Now</button>
         </a>
@@ -72,13 +72,13 @@
 <!-- Our Features -->
 <section id="features" class="features bg-light">
   <div class="container">
-    <h2 class="text-center"> {% if request.COOKIES.lang == "MM" %} {{ features.mm.header }} {% else %} {{ features.en.header }} {% endif %} </h2>
+    <h4 class="text-center"> {% if request.COOKIES.lang == "MM" %} {{ features.mm.header }} {% else %} {{ features.en.header }} {% endif %} </h4>
     <div class="row">
       <div class="col-md-4 feature">
         <div class="icon mb-3">
           {% include 'icons/tutors.html' %}
         </div>
-        {% if request.COOKIES.lang == "MM" %} <h4>{{ features.mm.topic1.header }}</h4> {% else %} <h3>{{ features.en.topic1.header }} {% endif %}</h3>
+        {% if request.COOKIES.lang == "MM" %} <h5>{{ features.mm.topic1.header }}</h5> {% else %} <h4>{{ features.en.topic1.header }} {% endif %}</h4>
         <p>
           {% if request.COOKIES.lang == "MM" %}
           {{ features.mm.topic1.body }}
@@ -91,7 +91,7 @@
         <div class="icon mb-3">
           {% include 'icons/calendar.html' %}
         </div>
-        {% if request.COOKIES.lang == "MM" %} <h4>{{ features.mm.topic2.header }}</h4> {% else %} <h3>{{ features.en.topic2.header }} {% endif %}</h3>
+        {% if request.COOKIES.lang == "MM" %} <h5>{{ features.mm.topic2.header }}</h5> {% else %} <h4>{{ features.en.topic2.header }} {% endif %}</h4>
         <p>
           {% if request.COOKIES.lang == "MM" %}
           {{ features.mm.topic2.body }}
@@ -104,7 +104,7 @@
         <div class="icon mb-3">
           {% include 'icons/interactive.html' %}
         </div>
-        {% if request.COOKIES.lang == "MM" %} <h4>{{ features.mm.topic3.header }}</h4> {% else %} <h3> {{ features.en.topic3.header }} </h3>{% endif %}
+        {% if request.COOKIES.lang == "MM" %} <h5>{{ features.mm.topic3.header }}</h5> {% else %} <h4> {{ features.en.topic3.header }} </h4>{% endif %}
         <p>
           {% if request.COOKIES.lang == "MM" %}
           {{ features.mm.topic3.body }}
@@ -119,7 +119,7 @@
 {% comment %}End of Our Features{% endcomment %}
 {% comment %}Start of Our Services{% endcomment %}
 <section class="container text-center my-5">
-  <h2 class="text-center mb-4"> {% if request.COOKIES.lang == "MM" %} {{ services.mm.header }} {% else %} {{ services.en.header }} {% endif %} </h2>
+  <h4 class="text-center mb-4"> {% if request.COOKIES.lang == "MM" %} {{ services.mm.header }} {% else %} {{ services.en.header }} {% endif %} </h4>
 
   <div class="row">
     <div class="col-md-4 service">
@@ -151,9 +151,9 @@
 
   <div class="row">
     <div class="col-md-8 offset-md-2">
-      <h2 class="text-center mb-5">
+      <h4 class="text-center mb-5">
         {% if request.COOKIES.lang == "MM" %} အသုံးပြုသူတို့ရဲ့ စကားသံ {% else %} Testimonials {% endif %}
-      </h2>
+      </h4>
 
       <div id="testimonialCarousel" class="carousel slide testimonial-carousel" data-ride="carousel">
         <div class="carousel-inner">
@@ -196,7 +196,7 @@
 
 {% comment %}Start of Featured Blogs{% endcomment %}
 <section class="container my-5">
-  <h2 class="text-center mb-4">Featured Blogs</h2>
+  <h4 class="text-center mb-4">Featured Blogs</h4>
   <div class="row">
     {% for post in featuredPosts %}
     {% include 'components/blog.html' %}
@@ -207,7 +207,7 @@
 
 <section id="events" class="py-5 bg-light">
   <div class="container">
-    <h2 class="text-center">Upcoming Events</h2>
+    <h4 class="text-center">Upcoming Events</h4>
     <div class="row mt-3">
       <!-- Event 1 -->
       {% for event in upcomingEvents %}
@@ -222,18 +222,18 @@
 </section>
 
 <div class="container mt-5">
-  <h2 class="text-center mb-4">Contact Us</h2>
+  <h4 class="text-center mb-4">Contact Us</h4>
 
   <div class="row">
     <!-- Address & Phone -->
     <div class="col-md-6 mb-4">
-      <h4>Our Office</h4>
+      <h5>Our Office</h5>
       <p><strong>Address:</strong> Building (4), Room (102), Thanthumar Road, 24th Ward, Thingangyun Township, Yangon
       </p>
       <p><strong>Phone:</strong> +959 790 108 000</p>
       <p><strong>Email:</strong> <a href="mailto:support@mmtutors.com">support@mmtutors.com</a></p>
 
-      <h4 class="mt-4">Follow Us</h4>
+      <h5 class="mt-4">Follow Us</h5>
       <a href="https://www.facebook.com/mmtutorseducation" class="me-3" target="_blank">
         <i class="bi bi-facebook"></i> Facebook
       </a>
@@ -241,7 +241,7 @@
 
     <!-- Google Map -->
     <div class="col-md-6 mb-4">
-      <h4>Find Us on Google Map</h4>
+      <h5>Find Us on Google Map</h5>
       <div class="embed-responsive embed-responsive-16by9">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d954.79137431748!2d96.19828135565423!3d16.81814395423141!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1ed71fab3d507%3A0x9a1fb7c38b4213c6!2sMMtutors!5e0!3m2!1sen!2sau!4v1727577436790!5m2!1sen!2sau"

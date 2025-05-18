@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto text-center">
-        <h2 class="mb-4">About Us</h2>
+        <h3 class="mb-4">About Us</h3>
         <p class="lead mb-5" style="line-height: 1.8;">
           {% if request.COOKIES.lang == "MM" %} {{ aboutUs.mm }} {% else %} {{ aboutUs.en }} {% endif %}
         </p>
@@ -18,7 +18,7 @@
     </div>
     <hr />
     <div class="achievement">
-      <h3 class="text-center mb-4">Our Achievements</h3>
+      <h4 class="text-center mb-4">Our Achievements</h4>
       <div class="row">
 
         {% for achievement in achievements %}
@@ -39,7 +39,7 @@
     <hr />
     <div class="row mt-5">
       <div class="col-lg-6">
-        <h3>Vision</h3>
+        <h4>Vision</h4>
         <p style="
           height: 100px;
       ">
@@ -48,7 +48,7 @@
         <img src="/public/MMTutorsVision.jpg" class="img-fluid mb-4" alt="Vision Image" />
       </div>
       <div class="col-lg-6">
-        <h3>Mission</h3>
+        <h4>Mission</h4>
         <p style="
         height: 100px;
     ">
