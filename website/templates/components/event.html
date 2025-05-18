@@ -3,12 +3,34 @@
     <img src="{{ event.image.url }}" class="card-img-top" alt="Event 1" />
     <div class="card-body">
       <h5 class="card-title">{{ event.title }}</h5>
-      <p class="card-text">
+      
+      <p class="card-text text-truncate overflow-hidden" id="eventText{{ event.id }}" style="max-height: 4.5em;">
         <strong>Date:</strong> {{ event.eventDate|date:"j F Y" }}<br />
         <strong>Time:</strong> {{ event.startTime|time:"g:i a" }} - {{ event.endTime|time:"g:i a" }}<br />
         Overview: {{ event.info }}
       </p>
-      <a href="/tutors/events" class="btn btn-primary">View More...</a>
+      
+      <button class="btn btn-primary" onclick="toggleText({{ event.id }})" id="toggleBtn{{ event.id }}">
+        See more
+      </button>
+
+      <!-- <a href="/tutors/events" class="btn btn-primary mt-2">View More...</a> -->
     </div>
   </div>
 </div>
+<script>
+function toggleText(id) {
+  const text = document.getElementById('eventText' + id);
+  const btn = document.getElementById('toggleBtn' + id);
+  
+  if (text.classList.contains('text-truncate')) {
+    text.classList.remove('text-truncate');
+    text.style.maxHeight = 'none';
+    btn.textContent = 'See less';
+  } else {
+    text.classList.add('text-truncate');
+    text.style.maxHeight = '4.5em'; // Adjust as needed (e.g., 3 lines)
+    btn.textContent = 'See more';
+  }
+}
+</script>
