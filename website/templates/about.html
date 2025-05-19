@@ -40,18 +40,14 @@
     <div class="row mt-5">
       <div class="col-lg-6">
         <h4>Vision</h4>
-        <p style="
-          height: 100px;
-      ">
+        <p>
           {% if request.COOKIES.lang == "MM" %} {{ vision.mm }} {% else %} {{ vision.en }} {% endif %}
         </p>
         <img src="/public/MMTutorsVision.jpg" class="img-fluid mb-4" alt="Vision Image" />
       </div>
       <div class="col-lg-6">
         <h4>Mission</h4>
-        <p style="
-        height: 100px;
-    ">
+        <p>
           {% if request.COOKIES.lang == "MM" %} {{ mission.mm }} {% else %} {{ mission.en }} {% endif %}
         </p>
         <img src="/public/MMTutorsMission.jpg" class="img-fluid mb-4" alt="Mission Image" />

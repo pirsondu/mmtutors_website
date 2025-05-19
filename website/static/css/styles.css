@@ -35,10 +35,15 @@ body {
     /* Slightly increase or decrease font size if needed */
 }
 
-.navbar .nav-link:hover {
-    color: #FF8C00 !important;
-    /* Dark orange color on hover */
+.navbar-nav .nav-item:hover {
+    background-color: #FF8C00 !important;
+    /* Space between nav items */
 }
+
+/* .navbar .nav-link:hover { */
+    /* color: #FF8C00 !important; */
+    /* Dark orange color on hover */
+/* } */
 
 .dropdown-menu {
     background-color: #FFD700 !important;
