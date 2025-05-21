@@ -4,14 +4,12 @@
 <section id="about" class="py-5">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 mx-auto text-center">
+      <div class="col-lg-8 mx-auto text-center content-detail">
         <h3 class="mb-4">About Us</h3>
         <p class="lead mb-5" style="line-height: 1.8;">
           {% if request.COOKIES.lang == "MM" %} {{ aboutUs.mm }} {% else %} {{ aboutUs.en }} {% endif %}
         </p>
-
       </div>
-
       <!-- Timeline Section -->
 
       <!-- Achievements Section -->
@@ -32,20 +30,18 @@
           </div>
         </div>
         {% endfor %}
-
-
       </div>
     </div>
     <hr />
     <div class="row mt-5">
-      <div class="col-lg-6">
+      <div class="col-lg-6 content-detail">
         <h4>Vision</h4>
         <p>
           {% if request.COOKIES.lang == "MM" %} {{ vision.mm }} {% else %} {{ vision.en }} {% endif %}
         </p>
         <img src="/public/MMTutorsVision.jpg" class="img-fluid mb-4" alt="Vision Image" />
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-6 content-detail">
         <h4>Mission</h4>
         <p>
           {% if request.COOKIES.lang == "MM" %} {{ mission.mm }} {% else %} {{ mission.en }} {% endif %}

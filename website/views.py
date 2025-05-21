@@ -105,7 +105,7 @@ def index_page(request):
                'testimonials': testimonials,
                'featuredPosts': featuredPosts,
                'upcomingEvents': upcomingEvents
-               }
+            }
     return render(request, "index.html", context)
 
 def about_page(request):
@@ -291,11 +291,3 @@ def job_page(request, slug):
         "job": job
     }
     return render(request, "job.html", context)
-
-
-
-
-
-
-
-

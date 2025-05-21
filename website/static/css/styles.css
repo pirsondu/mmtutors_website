@@ -257,3 +257,7 @@ footer {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.content-detail p {
+    line-height: 1.8;
+}
