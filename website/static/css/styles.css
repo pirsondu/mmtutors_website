@@ -10,7 +10,6 @@ body {
     /* Adjust this value if your navbar height is different */
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
-
 }
 
 .bg-yellow {
@@ -259,5 +258,5 @@ footer {
 }
 
 .content-detail p {
-    line-height: 1.8;
+    line-height: 2;
 }

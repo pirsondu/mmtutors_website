@@ -4,16 +4,15 @@
     <div class="card-body">
       <h5 class="card-title">{{ event.title }}</h5>
       
-      <p class="card-text text-truncate overflow-hidden" id="eventText{{ event.id }}" style="max-height: 4.5em;">
+      <div class="card-text text-truncate overflow-hidden content-detail" id="eventText{{ event.id }}" style="max-height: 4.5em;">
         <strong>Date:</strong> {{ event.eventDate|date:"j F Y" }}<br />
         <strong>Time:</strong> {{ event.startTime|time:"g:i a" }} - {{ event.endTime|time:"g:i a" }}<br />
-        Overview: {{ event.info }}
-      </p>
+        Overview: {{ event.info|linebreaks }}
+      </div>
       
-      <button class="btn btn-primary" onclick="toggleText({{ event.id }})" id="toggleBtn{{ event.id }}">
+      <button class="btn btn-primary" onclick="toggleText('{{ event.id }}')" id="toggleBtn{{ event.id }}">
         See more
       </button>
-
       <!-- <a href="/tutors/events" class="btn btn-primary mt-2">View More...</a> -->
     </div>
   </div>
