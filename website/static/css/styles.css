@@ -260,3 +260,8 @@ footer {
 .content-detail p {
     line-height: 2;
 }
+
+.download-apps img {
+    height: 52px;
+    width: 180px;
+}

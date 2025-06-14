@@ -3,10 +3,8 @@
 
 {% block body %}
 <!-- Photos Section -->
-
 <div id="heroCarousel" class="carousel slide hero-carousel" data-ride="carousel">
   <ol class="carousel-indicators">
-
     {% for image in slider %}
     <li data-target="#heroCarousel" data-slide-to="{{ forloop.counter }}"
       class="{% if forloop.counter == 1 %}active{% endif %} "></li>
@@ -14,11 +12,8 @@
   </ol>
   <div class="carousel-inner">
     {% for image in slider %}
-
     <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %} ">
       <img src="{{ image.image.url }}" class="d-block w-100" alt="First slide" />
-      <!-- Replace with the actual path to your image -->
-
     </div>
     {% endfor %}
   </div>
@@ -169,24 +164,22 @@
           <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %} ">
             <div class="testimonial-item">
               <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}">
-              <!-- Replace with actual image paths -->
               <h5>
                 {{ testimonial.name }}
               </h5>
-              <div class="rating">
+              <!-- <div class="rating">
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>
-              </div>
+              </div> -->
               <p style="line-height: 1.8;">
                 {{ testimonial.review }}
               </p>
             </div>
           </div>
           {% endfor %}
-
         </div>
         <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -236,10 +229,18 @@
     <!-- Address & Phone -->
     <div class="col-md-6 mb-4">
       <h5>Our Office</h5>
-      <p><strong>Address:</strong> Building (4), Room (102), Thanthumar Road, 24th Ward, Thingangyun Township, Yangon
+      <p>
+        <strong>Address: </strong>
+        Building (4), Room (102), Thanthumar Road, 24th Ward, Thingangyun Township, Yangon
       </p>
-      <p><strong>Phone:</strong> +959 790 108 000</p>
-      <p><strong>Email:</strong> <a href="mailto:support@mmtutors.com">support@mmtutors.com</a></p>
+      <p>
+        <strong>Phone: </strong>
+        <a href="tel:+959 790 108 000">+959 790 108 000</a>
+      </p>
+      <p>
+        <strong>Email: </strong>
+        <a href="mailto:support@mmtutors.com">support@mmtutors.com</a>
+      </p>
 
       <h5 class="mt-4">Follow Us</h5>
       <a href="https://www.facebook.com/mmtutorseducation" class="me-3" target="_blank">

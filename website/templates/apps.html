@@ -1,0 +1,88 @@
+{% extends 'base/layout.html' %} {% block body %} {% load static %}
+<section id="about" class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center content-detail">
+        <h3 class="mb-4">MMtutors Apps</h3>
+        <p class="lead mb-5" style="line-height: 1.8">
+          {% if request.COOKIES.lang == "MM" %} {{ info.mm }} {% else %} {{
+          info.en }} {% endif %}
+        </p>
+      </div>
+    </div>
+    <hr />
+    <div class="download-apps">
+      <h4 class="text-center mb-4">Tutor App</h4>
+      <div class="row">
+        <div class="col-md-4 text-center mb-2 mb-md-0">
+          <a href="" style="text-decoration: none" download>
+            <img src="{% static 'images/MMtutors-appstore.svg' %}" />
+          </a>
+        </div>
+        <div class="col-md-4 text-center mb-2 mb-md-0">
+          <a href="" style="text-decoration: none" download>
+            <img src="{% static 'images/MMtutors-playstore.svg' %}" />
+          </a>
+        </div>
+        <div class="col-md-4 text-center mb-2 mb-md-0">
+          <a
+            href="https://www.mmtutors.com/public/MMtutors-Tutor.apk"
+            style="text-decoration: none"
+            download
+          >
+            <div
+              class="bg-yellow d-inline-flex align-items-center justify-content-center shadow-sm"
+              style="height: 52px; width: 176px; border-radius: 8px"
+            >
+              {% include "icons/download.html" %}
+              <div class="text-left">
+                <small class="d-block" style="font-size: 10px"
+                  >Download APK</small
+                >
+                <strong style="font-size: 14px">Direct Download</strong>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="download-apps">
+      <h4 class="text-center mb-4">Parent App</h4>
+      <div class="row">
+        <div class="col-md-4 text-center mb-2 mb-md-0">
+          <a href="" style="text-decoration: none" download>
+            <img src="{% static 'images/MMtutors-appstore.svg' %}" />
+          </a>
+        </div>
+        <div class="col-md-4 text-center mb-2 mb-md-0">
+          <a href="" style="text-decoration: none" download>
+            <img src="{% static 'images/MMtutors-playstore.svg' %}" />
+          </a>
+        </div>
+        <div class="col-md-4 text-center mb-2 mb-md-0">
+          <a
+            href="https://www.mmtutors.com/public/MMtutors-Parent.apk"
+            style="text-decoration: none"
+            download
+          >
+            <div
+              class="bg-yellow d-inline-flex align-items-center justify-content-center shadow-sm"
+              style="height: 52px; width: 176px; border-radius: 8px"
+            >
+              {% include "icons/download.html" %}
+              <div class="text-left">
+                <small class="d-block" style="font-size: 10px"
+                  >Download APK</small
+                >
+                <strong style="font-size: 14px">Direct Download</strong>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container mt-5 pt-5"></div>
+{% endblock %}

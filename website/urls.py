@@ -7,6 +7,7 @@ from django.conf import settings
 urlpatterns = [
     path("", views.index_page, name="home"),
     path("about", views.about_page, name="about"),
+    path("apps", views.apps_page, name="apps"),
     path("features", views.features_page, name="features"),
     # path("contact", views.contact_page, name="contact"),
     path("blogs/<str:category>", views.blogs_page, name="blogs"),
@@ -15,6 +16,7 @@ urlpatterns = [
     path("job/<slug:slug>", views.job_page, name="job"),
     path("vlog", views.vlog_page, name="vlog"),
     path("privacy", views.privacy_page, name="privacy"),
+
     path("tutors/registration", views.tutor_register_page, name="tutor_registration"),
     path("tutors/events", views.tutor_events_page, name="tutor_events"),
     path("tutors/faq", views.tutor_faq_page, name="tutor_faq"),

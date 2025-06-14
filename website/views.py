@@ -132,6 +132,15 @@ def about_page(request):
     }
     return render(request, "about.html", context)
 
+def apps_page(request):
+    context = {
+        'info': {
+            'mm': 'MMtutors ရဲ့ application များ download ရယူပါ',
+            'en': 'Download MMtutors Application',
+        }
+    }
+    return render(request, "apps.html", context)
+
 def features_page(request):
     return render(request, "features.html")
 
