@@ -5,11 +5,7 @@
       <div class="col-lg-8 mx-auto text-center content-detail">
         <h3 class="mb-4">MMtutors Apps</h3>
         <p class="lead mb-5" style="line-height: 1.8">
-          {% if request.COOKIES.lang == "MM" %}
-            {{ info.mm }}
-          {% else %}
-            {{ info.en }}
-          {% endif %}
+          {% if request.COOKIES.lang == "MM" %} {{ info.mm }} {% else %} {{ info.en }} {% endif %}
         </p>
       </div>
     </div>
