@@ -5,8 +5,11 @@
       <div class="col-lg-8 mx-auto text-center content-detail">
         <h3 class="mb-4">MMtutors Apps</h3>
         <p class="lead mb-5" style="line-height: 1.8">
-          {% if request.COOKIES.lang == "MM" %} {{ info.mm }} {% else %} {{
-          info.en }} {% endif %}
+          {% if request.COOKIES.lang == "MM" %}
+            {{ info.mm }}
+          {% else %}
+            {{ info.en }}
+          {% endif %}
         </p>
       </div>
     </div>
@@ -15,12 +18,20 @@
       <h4 class="text-center mb-4">Tutor App</h4>
       <div class="row">
         <div class="col-md-4 text-center mb-2 mb-md-0">
-          <a href="https://play.google.com/store/apps/details?id=com.mmtutors.tutor&hl=en" style="text-decoration: none" download>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.mmtutors.tutor&hl=en"
+            style="text-decoration: none"
+            download
+          >
             <img src="{% static 'images/MMtutors-appstore.svg' %}" />
           </a>
         </div>
         <div class="col-md-4 text-center mb-2 mb-md-0">
-          <a href="https://apps.apple.com/us/app/mmtutors-tutors/id1489581742" style="text-decoration: none" download>
+          <a
+            href="https://apps.apple.com/us/app/mmtutors-tutors/id1489581742"
+            style="text-decoration: none"
+            download
+          >
             <img src="{% static 'images/MMtutors-playstore.svg' %}" />
           </a>
         </div>
@@ -51,12 +62,20 @@
       <h4 class="text-center mb-4">Parent App</h4>
       <div class="row">
         <div class="col-md-4 text-center mb-2 mb-md-0">
-          <a href="https://play.google.com/store/apps/details?id=com.mmtutors.parent&hl=en" style="text-decoration: none" download>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.mmtutors.parent&hl=en"
+            style="text-decoration: none"
+            download
+          >
             <img src="{% static 'images/MMtutors-appstore.svg' %}" />
           </a>
         </div>
         <div class="col-md-4 text-center mb-2 mb-md-0">
-          <a href="https://apps.apple.com/us/app/mmtutors/id1489581584" style="text-decoration: none" download>
+          <a
+            href="https://apps.apple.com/us/app/mmtutors/id1489581584"
+            style="text-decoration: none"
+            download
+          >
             <img src="{% static 'images/MMtutors-playstore.svg' %}" />
           </a>
         </div>

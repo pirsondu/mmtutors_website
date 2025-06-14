@@ -136,7 +136,7 @@ def apps_page(request):
     context = {
         'info': {
             'mm': 'MMtutors ရဲ့ application များ download ရယူပါ',
-            'en': 'Download MMtutors Application',
+            'en': 'Download MMtutors applications',
         }
     }
     return render(request, "apps.html", context)
