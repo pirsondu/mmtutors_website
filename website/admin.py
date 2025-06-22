@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Parent_Question, Tutor_Question, HomeImage, Achievement, Testimonial, Category, Post, Event, Registration, Enquiry, Job
+from .models import Parent_Question, Tutor_Question, HomeImage, Achievement, Testimonial, Category, Post, Event, Registration, Enquiry, Job, DownloadableApp
 
 class PostAdmin (admin.ModelAdmin):
     list_filter = ("categories",)
@@ -19,6 +19,8 @@ class JobAdmin (admin.ModelAdmin):
     list_display = ("date", "title", "salary", "isClosed")
     prepopulated_fields = {"slug": ("title",)}
 
+class DownloadableAppAdmin(admin.ModelAdmin):
+    list_display = ('title_en', 'title_mm', 'appstore_link', 'playstore_link', 'direct_download')
 
 admin.site.register(Parent_Question)
 admin.site.register(Tutor_Question)
@@ -31,5 +33,4 @@ admin.site.register(Event)
 admin.site.register(Registration, RegistrationAdmin)
 admin.site.register(Enquiry, EnquiryAdmin)
 admin.site.register(Job, JobAdmin)
-
-
+admin.site.register(DownloadableApp, DownloadableAppAdmin)

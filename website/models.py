@@ -124,3 +124,17 @@ class Job(models.Model):
 
     def __str__(self):
         return self.title
+
+class DownloadableApp(models.Model):
+    title_en = models.CharField(max_length=255)
+    title_mm = models.CharField(max_length=255, blank=True, null=True)
+    appstore_link = models.URLField(blank=True, null=True)
+    playstore_link = models.URLField(blank=True, null=True)
+    direct_download = models.FileField(upload_to='downloads/', blank=True, null=True)
+
+    def __str__(self):
+        return self.title_en
+
+    class Meta:
+        verbose_name = "App"
+        verbose_name_plural = "Apps"

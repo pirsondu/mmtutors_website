@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from django.core.paginator import Paginator
 
-from .models import Parent_Question, Tutor_Question, HomeImage, Achievement, Testimonial, Category, Post, Event, Registration, Enquiry, Job
+from .models import Parent_Question, Tutor_Question, HomeImage, Achievement, Testimonial, Category, Post, Event, Registration, Enquiry, Job, DownloadableApp
 from datetime import date
 import json
 
@@ -133,11 +133,13 @@ def about_page(request):
     return render(request, "about.html", context)
 
 def apps_page(request):
+    apps = DownloadableApp.objects.all()
     context = {
         'info': {
             'mm': 'MMtutors ရဲ့ application များ download ရယူပါ',
             'en': 'Download MMtutors applications',
-        }
+        },
+        'apps': apps
     }
     return render(request, "apps.html", context)
 
