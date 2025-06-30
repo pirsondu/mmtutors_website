@@ -136,8 +136,8 @@ def apps_page(request):
     apps = DownloadableApp.objects.all()
     context = {
         'info': {
-            'mm': 'MMtutors ရဲ့ application များ download ရယူပါ',
-            'en': 'Download MMtutors applications',
+            'mm': 'MMtutors ၏ Apps များကို download ရယူရန်',
+            'en': 'Download our Apps here',
         },
         'apps': apps
     }
