@@ -163,3 +163,4 @@ website/templates/oldindex.html
 mmtutors/settings.py
 
 db.sqlite3
+_db.sqlite3
