@@ -13,7 +13,7 @@ class RegistrationAdmin (admin.ModelAdmin):
 class EnquiryAdmin (admin.ModelAdmin):
     list_filter = ("tutorType", "arranged", "grade", "language", "subject")
     list_display = ("name", "phone", "email", "studentCount", "tutorType", "learningStyle", "date", "arranged")
-
+    list_per_page = 10  # 👈 show 20 records per page
 
 class JobAdmin (admin.ModelAdmin):
     list_display = ("date", "title", "salary", "isClosed")
