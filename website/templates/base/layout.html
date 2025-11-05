@@ -8,6 +8,10 @@
       content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=no"
     />
     <title>MMtutors - Leading Online Tutoring Platform in Myanmar</title>
+    <meta
+      name="description"
+      content="MMTutors helps students in Myanmar find qualified and verified tutors for all subjects and grades. Easy, fast, and reliable tutor matching platform."
+    />
     <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}" /> <link
     rel="stylesheet" href="{% static "css/styles.css" %}" />
     <link
@@ -151,8 +155,8 @@
       <div class="container">
         <p>
           &copy; 2024 MMtutors. All rights reserved. ||
-          <a href="{% url 'privacy' %}">Privacy Policy</a> ||
-          <a href="{% url 'tutor_terms' %}">Terms & Conditions</a>
+          <a href="{% url 'privacy' %}" aria-label="Privacy Policy">Privacy Policy</a> ||
+          <a href="{% url 'tutor_terms' %}" aria-label="Terms & Conditions">Terms & Conditions</a>
         </p>
       </div>
     </footer>
