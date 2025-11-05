@@ -61,7 +61,7 @@
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-yellow fixed-top">
-      <a class="navbar-brand" href="/"
+      <a class="navbar-brand" aria-label="Logo" href="/"
         ><img src="/public/logo.png" alt="MMtutors Logo"
       /></a>
       <button
@@ -78,17 +78,18 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'home' %}">Home</a>
+            <a class="nav-link" aria-label="Home" href="{% url 'home' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'blogs' 'all' %}">Blogs</a>
+            <a class="nav-link" aria-label="Blogs" href="{% url 'blogs' 'all' %}">Blogs</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'jobs' %}">Jobs</a>
+            <a class="nav-link" aria-label="Jobs" href="{% url 'jobs' %}">Jobs</a>
           </li>
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
+              aria-label="For Tutors"
               href="#"
               id="forTutorsDropdown"
               role="button"
@@ -97,22 +98,23 @@
               aria-expanded="false"
               >For Tutors</a
             >
-            <div class="dropdown-menu" aria-labelledby="forTutorsDropdown">
-              <a class="dropdown-item" href="{% url 'tutor_registration' %}"
+            <div class="dropdown-menu" aria-label="forTutorsDropdown">
+              <a class="dropdown-item" aria-label="Tutor Application Form" href="{% url 'tutor_registration' %}"
                 >Tutor Application Form</a
               >
-              <a class="dropdown-item" href="{% url 'tutor_events' %}"
+              <a class="dropdown-item" aria-label="Tutor Training Events" href="{% url 'tutor_events' %}"
                 >Tutor Training Events</a
               >
-              <a class="dropdown-item" href="{% url 'tutor_faq' %}"
+              <a class="dropdown-item" aria-label="FAQs for Tutors" href="{% url 'tutor_faq' %}"
                 >FAQs for Tutors</a
               >
-              <!-- <a class="dropdown-item" href="{% url 'tutor_terms' %}">Terms & Conditions</a> -->
+              <!-- <a class="dropdown-item" aria-label="Terms & Conditions" href="{% url 'tutor_terms' %}">Terms & Conditions</a> -->
             </div>
           </li>
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
+              aria-label="For Parents"
               href="#"
               id="forParentsDropdown"
               role="button"
@@ -122,19 +124,19 @@
               >For Parents</a
             >
             <div class="dropdown-menu" aria-labelledby="forParentsDropdown">
-              <a class="dropdown-item" href="{% url 'parents_tutors' %}"
+              <a class="dropdown-item" aria-label="Find a tutor" href="{% url 'parents_tutors' %}"
                 >Find a tutor</a
               >
-              <a class="dropdown-item" href="{% url 'parents_faq' %}"
+              <a class="dropdown-item" aria-label="FAQs for Parents" href="{% url 'parents_faq' %}"
                 >FAQs for Parents</a
               >
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'about' %}">About Us</a>
+            <a class="nav-link" aria-label="About Us" href="{% url 'about' %}">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'apps' %}">Apps</a>
+            <a class="nav-link" aria-label="Apps" href="{% url 'apps' %}">Apps</a>
           </li>
           <li class="d-flex align-items-center mt-2 mt-lg-0 ml-0 ml-lg-2">
             <select
