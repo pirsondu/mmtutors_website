@@ -13,7 +13,7 @@
   <div class="carousel-inner">
     {% for image in slider %}
     <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %} ">
-      <img src="{{ image.image.url }}" class="d-block w-100" alt="First slide" loading="lazy" />
+      <img src="{{ image.image.url }}" class="d-block w-100" alt="{{ image.image.url }}" fetchpriority="high" />
     </div>
     {% endfor %}
   </div>
