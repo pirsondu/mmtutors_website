@@ -8,7 +8,9 @@
     <div class="card-body">
       <h5 class="card-title">{{ post.title }}</h5>
       <p class="card-text excerpt-paragraph">{{ post.excerpt }}</p>
-      <a href="/blog/{{post.slug}}" aria-label="Read more about {{ post.title }}" class="btn btn-primary">Read More</a>
+      <a href="/blog/{{post.slug}}" aria-label="Read more about {{ post.title }}" class="btn btn-primary">
+        Read More <span class="sr-only">about {{ post.title }}</span>
+      </a>
     </div>
   </div>
 </div>
