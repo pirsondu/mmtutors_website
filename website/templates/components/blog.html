@@ -3,7 +3,7 @@
     {% if post.image.url != None %}
     <img src="{{ post.image.url }}" class="card-img-top" alt="..." />
     {% else %}
-    <iframe title="{{ post.title }}" class="embed-responsive-item" height="200px" src="https://www.youtube.com/embed/{{ post.videoId }}"></iframe>
+    <iframe title="{{ post.title }}" class="embed-responsive-item" height="200px" src="https://www.youtube.com/embed/{{ post.videoId }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
     {% endif %}
     <div class="card-body">
       <h5 class="card-title">{{ post.title }}</h5>
